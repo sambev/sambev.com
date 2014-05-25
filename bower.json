@@ -1,0 +1,24 @@
+{
+  "name": "myproject",
+  "version": "0.0.0",
+  "authors": [
+    "Sam Beveridge <sam.bev87@gmail.com>"
+  ],
+  "description": "life that describes parts of my life",
+  "license": "MIT",
+  "homepage": "www.sambev.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.1.1",
+    "angular": "~1.2.13",
+    "lodash": "2.4.1",
+    "d3": "3.48"
+  }
+}

@@ -1,0 +1,21 @@
+[[ extends 'base.html' ]]
+
+[[ block body ]]
+    <div class="row">
+        <div class="small-3 small-centered columns end">
+            <br>
+            <div class="center">
+                <form method="POST">
+                    <h5>Sign Up</h5>
+                    [[ if error ]]
+                        <p class="alert label">[- error -]</p><br><br>
+                    [[ endif ]]
+                    <input type="text" name="username" placeholder="User Name" />
+                    <input type="password" name="userpass" placeholder="Password" />
+                    <input type="password" name="userpass2" placeholder="Confirm Password" />
+                    <input type="submit" class="button" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+[[ endblock ]]
