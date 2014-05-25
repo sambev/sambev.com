@@ -1,14 +1,14 @@
-'use strict';
 var myDashboard = angular.module('myDashboard', []);
 
 myDashboard.factory('DashboardAPI', [
     '$http',
     function ($http) {
+        'use strict';
         var DashboardAPI = {
             getSummary: function () {
                 var req = $http({ method: 'GET', url: '/reports' })
-                .success(function (data, status) { return data })
-                .error(function (data, status) { return data });
+                .success(function (data, status) { return data; })
+                .error(function (data, status) { return data; });
                 return req;
             },
 
@@ -18,11 +18,11 @@ myDashboard.factory('DashboardAPI', [
                     method: 'GET',
                     url: '/reports/top_five/' + question
                 });
-                req.success(function (data, status) { return data });
-                req.error(function (data, status) { return data });
-                return req
+                req.success(function (data, status) { return data; });
+                req.error(function (data, status) { return data; });
+                return req;
             }
-        }
+        };
         return DashboardAPI;
     }
 ]);
@@ -31,6 +31,7 @@ myDashboard.controller('DashboardController', [
     '$scope',
     'DashboardAPI',
     function ($scope, DashboardAPI) {
+        'use strict';
         var token_types = ['tokens', 'choice', 'location'];
         var dumb_questions = [
             'Are you working?',
@@ -56,4 +57,3 @@ myDashboard.controller('DashboardController', [
 
     }
 ]);
-
