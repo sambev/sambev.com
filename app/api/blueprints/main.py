@@ -1,16 +1,37 @@
-from flask import Blueprint, request, render_template
+import json
+from flask import Blueprint, request, render_template, Response
+from app.api.classes.report import ReportSummary
 
 main = Blueprint('main', __name__,
                  template_folder='templates')
 
-# TODO Uncomment and configure this to give this blueprint a handle to the db
-# @main.record
-# def getDB(state):
-#     client = MongoClient(state.app.config['DB_URI'])
-#     main.db = client[state.app.config['DB_NAME']]
+@main.record
+def set_up(state):
+    main.report = ReportSummary('static/data/report-summary.json')
+    main.summaries = main.report.summaries
 
 @main.route('/', methods=['GET'])
 def index():
     """ Render the landing page """
     if request.method == 'GET':
         return render_template('index.html')
+
+@main.route('/me', methods=['GET'])
+def me():
+    if request.method == 'GET':
+        token_types = ['tokens', 'choice', 'location']
+        dumb_questions = [
+            'Are you working?',
+            'What music did you listen to?',
+            'How did you sleep?',
+            'Who did you get to know today?',
+            'How many coffees did you have today?'
+        ]
+        for summary in main.summaries:
+            if summary['question'] in dumb_questions:
+                del main.summaries[main.summaries.index(summary)]
+            elif summary['type'] in token_types:
+                summary['top_five'] = main.report.getTopFive(summary['question'])
+
+        print main.summaries
+    return render_template('index.html', summaries=main.summaries)

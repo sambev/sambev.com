@@ -6,7 +6,7 @@ import operator
 
 
 class ReportSummary(object):
-    summaries = {}
+    summaries = []
 
     def __init__(self, filepath):
         """

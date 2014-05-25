@@ -13,29 +13,23 @@
     </header>
 </div>
 <hr>
-<div ng-app="myDashboard">
-    <div ng-controller="DashboardController">
-        <div class="row">
-            <div ng-repeat="report in reports">
-                <div class="small-3 columns" ng-if="report.type != 'text'">
-                    <label>{{ report.question }}</label>
-                    <h3>{{ report.average | number: 2 }}</h3>
-                    <ul>
-                        <li ng-repeat="top in report.top_five | orderBy:amount">
-                            {{ top.answer }}: {{ top.amount }}
-                        </li>
-                    </ul>
-                </div>
+<div class="row">
+    [[ for summary in summaries ]]
+        [[ if summary.type != 'text' ]]
+            <div class="small-3 columns">
+                <label>[- summary.question -]</label>
+                <h3>[- summary.average | round(2) if summary.average -]</h3>
+                <ul>
+                    [[ for top in summary.top_five ]]
+                        <li>[- top.answer -]: [- top.amount -]</li>
+                    [[ endfor ]]
+                    </li>
+                </ul>
             </div>
-        </div>
-    </div>
+        [[ endif ]]
+    [[ endfor ]]
 </div>
 [[ endblock ]]
 
 [[ block footer ]]
-    <script type="text/javascript" src="static/vendor/crossfilter/crossfilter.min.js"></script>
-    <script type="text/javascript" src="static/vendor/d3/d3.min.js"></script>
-    <script src="static/vendor/angular/angular.min.js"></script>
-    <script src="static/vendor/lodash/dist/lodash.min.js"></script>
-    <script type="text/javascript" src="static/js/dashboard.js"></script>
 [[ endblock ]]
