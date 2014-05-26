@@ -14,11 +14,6 @@ def set_up(state):
 def index():
     """ Render the landing page """
     if request.method == 'GET':
-        return render_template('index.html')
-
-@main.route('/me', methods=['GET'])
-def me():
-    if request.method == 'GET':
         token_types = ['tokens', 'choice', 'location']
         dumb_questions = [
             'Are you working?',

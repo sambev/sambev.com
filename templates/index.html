@@ -1,6 +1,45 @@
 [[ extends 'base.html' ]]
 
 [[ block header ]]
+<style>
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+
+.yaxis path {
+  display: none;
+}
+
+.step_line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.happy_line {
+  fill: none;
+  stroke: red;
+  stroke-width: 1.5px;
+}
+
+.healthy_line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.weight_line {
+  fill: none;
+  stroke: orange;
+  stroke-width: 1.5px;
+}
+
+</style>
 [[ endblock ]]
 
 [[ block body ]]
@@ -14,22 +53,53 @@
 </div>
 <hr>
 <div class="row">
+    <h2>Averages</h2>
     [[ for summary in summaries ]]
-        [[ if summary.type != 'text' ]]
-            <div class="small-3 columns">
+        [[ if summary.type == 'numeric' ]]
+            <div class="small-2 columns">
                 <label>[- summary.question -]</label>
-                <h3>[- summary.average | round(2) if summary.average -]</h3>
-                <ul>
-                    [[ for top in summary.top_five ]]
-                        <li>[- top.answer -]: [- top.amount -]</li>
-                    [[ endfor ]]
-                    </li>
-                </ul>
+                <h3>[- summary.average | round(2) -]</h3>
             </div>
         [[ endif ]]
     [[ endfor ]]
 </div>
+<div class="row">
+    <div class="small-12 columns">
+        <svg id="chart-main"></svg>
+    </div>
+</div>
+<div class="row">
+    <h2>Top fives</h2>
+    [[ for summary in summaries ]]
+        [[ if summary.type == 'tokens' ]]
+            <div class="small-3 columns">
+                <label>[- summary.question -]</label>
+                <ol>
+                    [[ for top in summary.top_five ]]
+                        <li>[- top.answer | title -]</li>
+                    [[ endfor ]]
+                </ol>
+            </div>
+        [[ endif ]]
+    [[ endfor ]]
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 [[ endblock ]]
 
 [[ block footer ]]
+    <script src="static/vendor/d3/d3.min.js"></script>
+    <script src="static/vendor/lodash/dist/lodash.min.js"></script>
+    <script src="static/js/chart.js"></script>
 [[ endblock ]]
