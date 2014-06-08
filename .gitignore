@@ -5,3 +5,4 @@ build
 node_modules
 .sass-cache
 static/css/*.css
+npm-debug.log
