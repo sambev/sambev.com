@@ -28,7 +28,7 @@ class ReportSummary(object):
     def getTopFive(self, question):
         top_five = []
         summary = self.getSummaryForQuestion(question)
-        # work team was a mistake.  This shouldn't go here. But it'll do for now
+        #work team was a mistake.  This shouldn't go here. But it'll do for now
         if 'Work Team' in summary['answers']:
             del summary['answers']['Work Team']
         sorted_all = sorted(

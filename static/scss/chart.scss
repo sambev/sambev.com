@@ -1,0 +1,36 @@
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: #000;
+}
+
+
+.yaxis path {
+  display: none;
+}
+
+.step_line {
+  fill: none;
+  stroke: #4682b4;
+  stroke-width: 1.5px;
+}
+
+.happy_line {
+  fill: none;
+  stroke: #f00;
+  stroke-width: 1.5px;
+}
+
+.healthy_line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.weight_line {
+  fill: none;
+  stroke: #ffa500;
+  stroke-width: 1.5px;
+}
+

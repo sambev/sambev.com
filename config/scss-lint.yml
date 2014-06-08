@@ -3,4 +3,4 @@ exclude: 'static/scss/base.scss'
 linters:
 
   Indentation:
-    width: 4
+    width: 2

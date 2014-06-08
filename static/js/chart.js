@@ -21,6 +21,11 @@ var y_axis = d3.svg.axis()
     .orient('right')
     .tickValues([]);
 
+var line = d3.svg.line()
+    .interpolate('basis')
+    .x(function (d) { return x(d.date); })
+    .y(function (d) { return y(d.value); });
+
 var step_line = d3.svg.line()
     .interpolate('basis')
     .x(function (d) { return x(d.date); })
@@ -45,7 +50,6 @@ function parseDates (report) {
 
 d3.json('/reports', function (res) {
     _.each(res, function (report) {
-        console.log(report);
         switch (report.question) {
             case 'How happy are you?':
                 happy = report;
@@ -82,32 +86,28 @@ d3.json('/reports', function (res) {
         .call(y_axis);
 
     main_svg.selectAll('.happy')
-        .data(happy.answers)
+        .data([happy.answers])
         .enter()
-        .append('circle')
-        .attr('cx', function (d) { return x(d.date); })
-        .attr('cy', function (d) { return y(d.value); })
-        .attr('r', 2)
-        .attr('fill', 'black');
+        .append('path')
+        .attr('class', 'happy_line')
+        .attr('d', function (d) { return line(happy.answers); });
 
     main_svg.selectAll('.healthy')
-        .data(healthy.answers)
+        .data([healthy.answers])
         .enter()
-        .append('circle')
-        .attr('cx', function (d) { return x(d.date); })
-        .attr('cy', function (d) { return y(d.value); })
-        .attr('r', 2)
-        .attr('fill', 'red');
+        .append('path')
+        .attr('class', 'healthy_line')
+        .attr('d', function (d) { return line(healthy.answers); });
 
     main_svg.selectAll('.steps')
-        .data(steps.answers)
+        .data([steps.answers])
         .enter()
         .append('path')
         .attr('class', 'step_line')
         .attr('d', function (d) { return step_line(steps.answers); });
 
     main_svg.selectAll('.weight')
-        .data(weight.answers)
+        .data([weight.answers])
         .enter()
         .append('path')
         .attr('class', 'weight_line')

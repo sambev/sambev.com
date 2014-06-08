@@ -23,6 +23,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'static/css/base.css': 'static/scss/base.scss',
+                    'static/css/chart.css': 'static/scss/chart.scss',
                 }
             }
         },
@@ -42,7 +43,8 @@ module.exports = function(grunt) {
                 },
                 command: [
                     'pep8 *.py',
-                    'pep8 blueprints/*.py',
+                    'pep8 app/api/blueprints/*.py',
+                    'pep8 app/api/classes/*.py',
                     'pep8 util/*.py',
                     'pep8 config/*.py',
                     'pep8 tests/python/*.py'

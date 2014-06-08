@@ -40,7 +40,7 @@ def login():
         user = auth.db.query(User).filter(User.name == name).one()
         if user:
             thehash = pbkdf2_hex(passwd.encode('utf-8'),
-                                     user.salt.encode('utf-8'))
+                                 user.salt.encode('utf-8'))
             # password matches
             if thehash == user.hash:
                 session['user'] = user.id
