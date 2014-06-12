@@ -84,32 +84,4 @@ d3.json('/reports', function (res) {
     main_svg.append('g')
         .attr('class', 'yaxis')
         .call(y_axis);
-
-    main_svg.selectAll('.happy')
-        .data([happy.answers])
-        .enter()
-        .append('path')
-        .attr('class', 'happy_line')
-        .attr('d', function (d) { return line(happy.answers); });
-
-    main_svg.selectAll('.healthy')
-        .data([healthy.answers])
-        .enter()
-        .append('path')
-        .attr('class', 'healthy_line')
-        .attr('d', function (d) { return line(healthy.answers); });
-
-    main_svg.selectAll('.steps')
-        .data([steps.answers])
-        .enter()
-        .append('path')
-        .attr('class', 'step_line')
-        .attr('d', function (d) { return step_line(steps.answers); });
-
-    main_svg.selectAll('.weight')
-        .data([weight.answers])
-        .enter()
-        .append('path')
-        .attr('class', 'weight_line')
-        .attr('d', function (d) { return weight_line(weight.answers); });
 });
