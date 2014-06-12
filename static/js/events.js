@@ -1,58 +1,22 @@
-function draw_happy (svg) {
-    svg = d3.select(svg);
-    svg.selectAll('.happy_line')
-        .data([happy.answers])
-        .enter()
-        .append('path')
-        .attr('class', 'happy_line')
-        .attr('d', function (d) { return line(happy.answers); });
-}
-
-function remove_happy (svg) {
-    d3.selectAll('.happy_line').remove();
-
-}
-
-function draw_healthy (svg) {
+/**
+ * add a path the to svg
+ * @param {Element} svg - the svg to append the path to
+ * @param {d3 svg line} line - the line function to use
+ * @param {Array} data - the data for the path
+ * @param {String} class_name - the class name to apply to the path
+ */
+function add_path (svg, linefn, data, class_name) {
     d3.select(svg)
-        .selectAll('.healthy')
-        .data([healthy.answers])
+        .selectAll('.' + class_name)
+        .data([data])
         .enter()
         .append('path')
-        .attr('class', 'healthy_line')
-        .attr('d', function (d) { return line(healthy.answers); });
+        .attr('class', class_name)
+        .attr('d', function (d) { return linefn(data); });
 }
 
-function remove_healthy () {
-    d3.selectAll('.healthy_line').remove();
-}
-
-function draw_steps (svg) {
-    svg = d3.select(svg);
-    svg.selectAll('.steps')
-        .data([steps.answers])
-        .enter()
-        .append('path')
-        .attr('class', 'step_line')
-        .attr('d', function (d) { return step_line(steps.answers); });
-}
-
-function remove_steps () {
-    d3.selectAll('.step_line').remove();
-}
-
-function draw_weight (svg) {
-    svg = d3.select(svg);
-    svg.selectAll('.weight')
-        .data([weight.answers])
-        .enter()
-        .append('path')
-        .attr('class', 'weight_line')
-        .attr('d', function (d) { return weight_line(weight.answers); });
-}
-
-function remove_weight () {
-    d3.selectAll('.weight_line').remove();
+function remove_path (class_name) {
+    d3.selectAll('.' + class_name).remove();
 }
 
 window.onload = function () {
@@ -64,33 +28,33 @@ window.onload = function () {
 
     happy_toggle.onchange = function (ev) {
         if (happy_toggle.checked) {
-            draw_happy(main_svg);
+            add_path(main_svg, line, happy.answers, 'happy_line');
         } else {
-            remove_happy(main_svg);
+            remove_path('happy_line');
         }
     };
 
     health_toggle.onchange = function (ev) {
         if (health_toggle.checked) {
-            draw_healthy(main_svg);
+            add_path(main_svg, line, healthy.answers, 'healthy_line');
         } else {
-            remove_healthy();
+            remove_path('healthy_line');
         }
     };
 
     weight_toggle.onchange = function (ev) {
         if (weight_toggle.checked) {
-            draw_weight(main_svg);
+            add_path(main_svg, weight_line, weight.answers, 'weight_line');
         } else {
-            remove_weight();
+            remove_path('weight_line');
         }
     };
 
     steps_toggle.onchange = function (ev) {
         if (steps_toggle.checked) {
-            draw_steps(main_svg);
+            add_path(main_svg, step_line, steps.answers, 'step_line');
         } else {
-            remove_steps();
+            remove_path('step_line');
         }
     };
 };
