@@ -12,6 +12,14 @@ var weight_scale = d3.scale.linear()
     .domain([200, 220])
     .range([250, 0]);
 
+var miles_scale = d3.scale.linear()
+    .domain([0, 10])
+    .range([250, 0]);
+
+var floor_scale = d3.scale.linear()
+    .domain([0, 200])
+    .range([250, 0]);
+
 var x_axis = d3.svg.axis()
     .scale(x)
     .orient('bottom');
@@ -36,6 +44,16 @@ var weight_line = d3.svg.line()
     .x(function (d) { return x(d.date); })
     .y(function (d) { return weight_scale(d.value); });
 
+var miles_line = d3.svg.line()
+    .interpolate('basis')
+    .x(function (d) { return x(d.date); })
+    .y(function (d) { return miles_scale(d.value); });
+
+var floor_line = d3.svg.line()
+    .interpolate('basis')
+    .x(function (d) { return x(d.date); })
+    .y(function (d) { return floor_scale(d.value); });
+
 var main_svg = d3.select('#chart-main')
     .attr('width', '100%')
     .attr('height', 300)
@@ -50,22 +68,25 @@ function parseDates (report) {
 
 d3.json('/reports', function (res) {
     _.each(res, function (report) {
+        parseDates(report);
         switch (report.question) {
             case 'How happy are you?':
                 happy = report;
-                parseDates(happy);
                 break;
             case 'How healthy do you feel?':
                 healthy = report;
-                parseDates(healthy);
                 break;
             case 'How many steps today?':
                 steps = report;
-                parseDates(steps);
                 break;
             case 'What did you weigh?':
                 weight = report;
-                parseDates(weight);
+                break;
+            case 'How many miles':
+                miles = report;
+                break;
+            case 'How many floors?':
+                floors = report;
                 break;
             default:
                 break;

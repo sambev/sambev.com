@@ -24,6 +24,8 @@ window.onload = function () {
     var health_toggle = document.getElementById('health_check');
     var weight_toggle = document.getElementById('weight_check');
     var steps_toggle = document.getElementById('steps_check');
+    var miles_toggle = document.getElementById('miles_check');
+    var floor_toggle = document.getElementById('floors_check');
     var main_svg = document.getElementById('chart-main');
 
     happy_toggle.onchange = function (ev) {
@@ -55,6 +57,22 @@ window.onload = function () {
             add_path(main_svg, step_line, steps.answers, 'step_line');
         } else {
             remove_path('step_line');
+        }
+    };
+
+    miles_toggle.onchange = function (ev) {
+        if (miles_toggle.checked) {
+            add_path(main_svg, miles_line, miles.answers, 'miles_line');
+        } else {
+            remove_path('miles_line');
+        }
+    };
+
+    floor_toggle.onchange = function (ev) {
+        if (floor_toggle.checked) {
+            add_path(main_svg, floor_line, floors.answers, 'floor_line');
+        } else {
+            remove_path('floor_line');
         }
     };
 };
