@@ -8,5 +8,7 @@ alembic==0.6.4
 gunicorn==18.0
 itsdangerous==0.23
 pep8==1.4.6
+python-dateutil==2.2
 requests==2.2.1
+six==1.7.2
 wsgiref==0.1.2
