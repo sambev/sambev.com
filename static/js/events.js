@@ -75,4 +75,28 @@ window.onload = function () {
             remove_path('floor_line');
         }
     };
+
+    // I think there is some sort of race conditition where happy, or any of the
+    // report data is loaded when this gets hit.
+    try {
+        add_path(main_svg, line, happy.answers, 'happy_line');
+        happy_toggle.checked = true;
+
+        add_path(main_svg, line, healthy.answers, 'healthy_line');
+        health_toggle.checked = true;
+
+        add_path(main_svg, weight_line, weight.answers, 'weight_line');
+        weight_toggle.checked = true;
+
+        add_path(main_svg, step_line, steps.answers, 'step_line');
+        steps_toggle.checked = true;
+
+        add_path(main_svg, miles_line, miles.answers, 'miles_line');
+        miles_toggle.checked = true;
+
+        add_path(main_svg, floor_line, floors.answers, 'floor_line');
+        floor_toggle.checked = true;
+    } catch (e) {
+        console.log('died trying to auto populate the graph');
+    }
 };

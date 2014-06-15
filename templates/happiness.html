@@ -1,0 +1,17 @@
+[[ extends 'base.html' ]]
+
+[[ block header ]]
+[[ endblock ]]
+
+[[ block body ]]
+    <div class="row">
+        <div class="small-12 columsn">
+        <p>Total Average: [- average | round(2) -]</p>
+        <p>Highest Report: [- max -] @ [- best_day.date() -] [- best_day.time() -]</p>
+        <p>Lowest Report: [- min -] @ [- worst_day.date() -] [- worst_day.time() -]</p>
+        </div>
+    </div>
+[[ endblock ]]
+
+[[ block footer ]]
+[[ endblock ]]

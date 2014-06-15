@@ -1,0 +1,11 @@
+.sb-button {
+  border: solid 2px #008cba;
+  display: inline-block;
+  margin: 0 .5em;
+  opacity: .5;
+  padding: 1em 2em;
+}
+
+.sb-button:hover {
+  opacity: 1;
+}

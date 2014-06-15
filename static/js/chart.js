@@ -24,11 +24,6 @@ var x_axis = d3.svg.axis()
     .scale(x)
     .orient('bottom');
 
-var y_axis = d3.svg.axis()
-    .scale(y)
-    .orient('right')
-    .tickValues([]);
-
 var line = d3.svg.line()
     .interpolate('basis')
     .x(function (d) { return x(d.date); })
@@ -58,7 +53,7 @@ var main_svg = d3.select('#chart-main')
     .attr('width', '100%')
     .attr('height', 300)
     .append('g')
-        .attr('transform', 'translate(' + 25 + ',' + 20 + ')');
+        .attr('transform', 'translate(' + 0 + ',' + 20 + ')');
 
 function parseDates (report) {
     _.map(report.answers, function (answer) {
@@ -101,8 +96,4 @@ d3.json('/reports', function (res) {
         .attr('class', 'axis')
         .attr('transform', 'translate(0,' + 250 + ')')
         .call(x_axis);
-
-    main_svg.append('g')
-        .attr('class', 'yaxis')
-        .call(y_axis);
 });

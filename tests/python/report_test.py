@@ -1,6 +1,7 @@
 import os
 import unittest
 from app.api.classes.report import ReportSummary
+import datetime
 
 
 class BasicTest(unittest.TestCase):
@@ -44,6 +45,20 @@ class BasicTest(unittest.TestCase):
             ],
             self.summary.getTopFive(question)
         )
+
+    def testGetQuestionMin(self):
+        """Should be able to get the min and max of a question"""
+        question = 'How happy are you?'
+        min = self.summary.getQuestionMin(question)
+        self.assertEquals(min[0], 3)
+        self.assertEquals(min[1].date(), datetime.date(2014, 03, 14))
+
+    def testGetQuestionMax(self):
+        """Should be able to get the min and max of a question"""
+        question = 'How happy are you?'
+        max = self.summary.getQuestionMax(question)
+        self.assertEquals(max[0], 9)
+        self.assertEquals(max[1].date(), datetime.date(2014, 2, 7))
 
 
 if __name__ == '__main__':

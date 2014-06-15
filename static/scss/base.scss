@@ -4,40 +4,9 @@
 url("http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700"),
 'colors',
 'settings',
-'static/vendor/foundation/scss/foundation';
+'static/vendor/foundation/scss/foundation',
+'button';
 
-@mixin border-radius($radius) {
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  -webkit-border-radius: $radius;
-}
-
-.nice-border {
-  @include border-radius(.2em);
-}
-
-a {
-  color: #000;
-}
-
-a:hover {
-  color: #000;
-}
-
-.title-box {
-  font-size: 3em;
-  font-weight: 100;
-  line-height: 1.4em;
-  margin: .2em;
-  opacity: .5;
-  text-align: center;
-}
-
-.title-box:hover {
-  opacity: 1;
-}
-
-.subtitle {
-  font-weight: 100;
+.header-tab {
+  margin: 1.5em 0 0;
 }

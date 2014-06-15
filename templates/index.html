@@ -6,26 +6,6 @@
 
 [[ block body ]]
 <div class="row">
-    <header>
-        <div class="small-4 columns">
-            <a href="/"><h1>sambev.com</h1></a>
-            <span class="subtitle">I have no idea what I am doing</span>
-        </div>
-    </header>
-</div>
-<hr>
-<div class="row">
-    <h2>Averages</h2>
-    [[ for summary in summaries ]]
-        [[ if summary.type == 'numeric' ]]
-            <div class="small-2 columns">
-                <label>[- summary.question -]</label>
-                <h3>[- summary.average | round(2) -]</h3>
-            </div>
-        [[ endif ]]
-    [[ endfor ]]
-</div>
-<div class="row">
     <div class="small-12 columns">
         <input id="happy_check" type="checkbox" />
         <label for="happy_check">Happiness</label>
