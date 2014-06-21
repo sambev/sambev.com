@@ -1,0 +1,34 @@
+[[ set good_questions= [
+    'Who are you with?',
+    'What are you doing?',
+    'Where are you?'
+]]]
+
+[[ extends 'base.html' ]]
+
+[[ block header ]]
+[[ endblock ]]
+
+[[ block body ]]
+    <div class="row">
+        <div class="small-3 columns">
+            <h1>[- context.answer -]</h1>
+            <p>[- context.amount -] total reports</p>
+        </div>
+        [[ for question in context.questions ]]
+            [[ if question in good_questions ]]
+                <div class="small-3 columns">
+                    <p>[- question -]</p>
+                    <ul>
+                    [[ for answer in context.questions[question] ]]
+                        <li><a href="[- answer[0] -]">[- answer[0] -]: [- answer[1] -]</li>
+                    [[ endfor ]]
+                    </ul>
+                </div>
+            [[ endif ]]
+        [[ endfor ]]
+    </div>
+[[ endblock ]]
+
+[[ block footer ]]
+[[ endblock ]]

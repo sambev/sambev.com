@@ -4,6 +4,7 @@ import json
 class Context(object):
 
     def __init__(self):
+        self.answer = ''
         self.amount = 0
         self.questions = {}
 
@@ -29,19 +30,28 @@ class ReportsAPI(object):
         @return {Context} context
         """
         context = Context()
+        context.answer = answer
         for report in self.reports:
             if self._reportHasAnswer(report, answer):
                 context.amount += 1
                 for resp in report['responses']:
+                    question = resp['questionPrompt']
+                    if question not in context.questions:
+                        context.questions[question] = {}
                     if 'tokens' in resp:
-                        question = resp['questionPrompt']
-                        if question not in context.questions:
-                            context.questions[question] = {}
                         for token in resp['tokens']:
-                            if token not in context.questions[question]:
+                            if token == answer:
+                                pass
+                            elif token not in context.questions[question]:
                                 context.questions[question][token] = 1
                             else:
                                 context.questions[question][token] += 1
+                    elif 'locationResponse' in resp:
+                        location = resp['locationResponse']['text']
+                        if location not in context.questions[question]:
+                            context.questions[question][location] = 1
+                        else:
+                            context.questions[question][location] += 1
         return context
 
     def _reportHasAnswer(self, report, answer):
