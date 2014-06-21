@@ -1,6 +1,6 @@
 import json
 from flask import Blueprint, request, Response
-from app.api.classes.report import ReportSummary
+from app.api.classes.report_summary import ReportSummary
 
 rep_bp = Blueprint('rep_bp', __name__,
                    template_folder='templates')

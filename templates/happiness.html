@@ -5,10 +5,30 @@
 
 [[ block body ]]
     <div class="row">
-        <div class="small-12 columsn">
-        <p>Total Average: [- average | round(2) -]</p>
-        <p>Highest Report: [- max -] @ [- best_day.date() -] [- best_day.time() -]</p>
-        <p>Lowest Report: [- min -] @ [- worst_day.date() -] [- worst_day.time() -]</p>
+        <div class="small-2 columns">
+            <span class="stat-title">AVERAGE</span><br />
+            <span class="stat-value">[- average | round(2) -]</span><br />
+            <span class="stat-date">1142 reports</span><br />
+        </div>
+        <div class="small-1 columns">
+            <span class="stat-title">MAX</span><br />
+            <span class="stat-value">[- max -]</span><br />
+            <span class="stat-date">[- best_day.date() -]</span><br />
+        </div>
+        <div class="small-3 columns">
+            <label><strong>Who: </strong>Marcos, Dean, Natalie, Deanna</label>
+            <label><strong>What: </strong>Dinner</label>
+            <label><strong>Where: </strong>Communal</label>
+        </div>
+        <div class="small-1 columns">
+            <span class="stat-title">MIN</span><br />
+            <span class="stat-value">[- min -]</span><br />
+            <span class="stat-date">[- worst_day.date() -]</span>
+        </div>
+        <div class="small-3 columns end">
+            <label><strong>Who: </strong>-</label>
+            <label><strong>What: </strong>Dinner</label>
+            <label><strong>Where: </strong>Home apt</label>
         </div>
     </div>
 [[ endblock ]]

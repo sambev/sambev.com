@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template
-from app.api.classes.report import ReportSummary
+from app.api.classes.report_summary import ReportSummary
 from dateutil import parser as date_parser
 
 happy_bp = Blueprint('happy_bp', __name__,

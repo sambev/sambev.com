@@ -11,7 +11,7 @@ class ReportSummary(object):
 
     def __init__(self, filepath):
         """
-        :param filepath (str)
+        @param filepath (str)
         """
         self.filepath = filepath
         with open(filepath) as f:
@@ -19,8 +19,8 @@ class ReportSummary(object):
 
     def getSummaryForQuestion(self, question):
         """
-        :param question (str): e.g. 'How happy are you?'
-        :return summary (dict)
+        @param question (str): e.g. 'How happy are you?'
+        @return summary (dict)
         """
         for summary in self.summaries:
             if summary['question'] == question:

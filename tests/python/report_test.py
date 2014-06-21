@@ -1,64 +1,37 @@
 import os
 import unittest
-from app.api.classes.report import ReportSummary
+from app.api.classes.reports import ReportsAPI
 import datetime
 
 
-class BasicTest(unittest.TestCase):
+class ReportTest(unittest.TestCase):
 
     def setUp(self):
-        self.summary = ReportSummary('./test_summary.json')
+        self.api = ReportsAPI('./test_reports.json')
         pass
 
     def tearDown(self):
         pass
 
     def testInit(self):
-        """Should be able to initialize the ReportSummary object"""
-        self.assertEquals(self.summary.filepath, './test_summary.json')
+        self.assertIsInstance(self.api, ReportsAPI)
+        self.assertEqual(1091, len(self.api.reports))
 
-    def testGetTopFive(self):
-        """Should be able to get the top 5 of a metric"""
-        question = 'Who are you with?'
-        self.assertEquals(
-            [
-                {
-                    'answer': 'Marcos',
-                    'amount': 175
-                },
-                {
-                    'answer': 'Dean Cheesman',
-                    'amount': 148
-                },
-                {
-                    'answer': 'Sean Brown (null)',
-                    'amount': 109
-                },
-                {
-                    'answer': 'natalie landrey',
-                    'amount': 84
-                },
-                {
-                    'answer': 'Deanna Dillard',
-                    'amount': 62
-                }
-            ],
-            self.summary.getTopFive(question)
-        )
+    def testGetContextAmount(self):
+        answer = 'Marcos'
+        context = self.api.getContext(answer)
+        self.assertEqual(context.amount, 201)
 
-    def testGetQuestionMin(self):
-        """Should be able to get the min and max of a question"""
-        question = 'How happy are you?'
-        min = self.summary.getQuestionMin(question)
-        self.assertEquals(min[0], 3)
-        self.assertEquals(min[1].date(), datetime.date(2014, 03, 14))
+    def testGetContextOtherWhoAreYouWith(self):
+        answer = 'Marcos'
+        context = self.api.getContext(answer)
+        self.assertTrue('Dean Cheesman' in context.questions['Who are you with?'])
+        self.assertEqual(len(context.questions['Who are you with?']), 79)
 
-    def testGetQuestionMax(self):
-        """Should be able to get the min and max of a question"""
-        question = 'How happy are you?'
-        max = self.summary.getQuestionMax(question)
-        self.assertEquals(max[0], 9)
-        self.assertEquals(max[1].date(), datetime.date(2014, 2, 7))
+    def test_reportHasAnswer(self):
+        report = self.api.reports[0];
+        self.assertTrue(self.api._reportHasAnswer(report, 'Work Team'))
+        self.assertFalse(self.api._reportHasAnswer(report, 'Work Team fo'))
 
 
 if __name__ == '__main__':
