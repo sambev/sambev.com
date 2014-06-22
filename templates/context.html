@@ -16,12 +16,12 @@
             <p>[- context.amount -] total reports</p>
         </div>
         [[ for question in context.questions ]]
-            [[ if question in good_questions ]]
+            [[ if question in good_questions and context.questions[question] | length ]]
                 <div class="small-3 columns">
                     <p>[- question -]</p>
                     <ul>
                     [[ for answer in context.questions[question] ]]
-                        <li><a href="[- answer[0] -]">[- answer[0] -]: [- answer[1] -]</li>
+                        <li><a href="[- answer[0] -]">[- answer[0] -]: [- answer[1] -]</a></li>
                     [[ endfor ]]
                     </ul>
                 </div>

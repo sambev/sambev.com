@@ -48,7 +48,9 @@ class ReportsAPI(object):
                                 context.questions[question][token] += 1
                     elif 'locationResponse' in resp:
                         location = resp['locationResponse']['text']
-                        if location not in context.questions[question]:
+                        if answer == location:
+                            pass
+                        elif location not in context.questions[question]:
                             context.questions[question][location] = 1
                         else:
                             context.questions[question][location] += 1
@@ -61,13 +63,9 @@ class ReportsAPI(object):
         """
         for res in report['responses']:
             for key in res:
-                if key != 'questionPrompt' and answer in res[key]:
-                    return True
+                if key != 'questionPrompt':
+                    if key in ['tokens'] and answer in res[key]:
+                        return True
+                    if key == 'locationResponse' and answer == res[key]['text']:
+                        return True
         return False
-
-    def _addTokenContext(self, resp, context):
-        """
-        TESTME: this isn't tested because it kind of sucks to test, which
-            is a sign it sucks.
-        FIXME: this method kind of sucks and really just breaks up getContext
-        """
