@@ -1,0 +1,19 @@
+[[ extends 'base.html' ]]
+
+[[ block header ]]
+[[ endblock ]]
+
+[[ block body ]]
+    <div class="row">
+        <div class="small-12 columns">
+            <ul>
+            [[ for person in top_five ]]
+                <li><a href="/context/[- person['answer'] -]">[- person['answer'] -]: [- person['amount'] -]</li>
+            [[ endfor ]]
+            </ul>
+        </div>
+    </div>
+[[ endblock ]]
+
+[[ block footer ]]
+[[ endblock ]]

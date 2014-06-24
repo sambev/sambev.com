@@ -27,6 +27,10 @@ class ReportSummary(object):
                 return summary
 
     def getTopFive(self, question):
+        """
+        @param {str} question
+        @return {list} top_five
+        """
         top_five = []
         summary = self.getSummary(question)
         #work team was a mistake.  This shouldn't go here. But it'll do for now
