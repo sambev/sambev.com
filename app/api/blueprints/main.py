@@ -31,4 +31,4 @@ def index():
                 summary['top_five'] = main.report.getTopFive(
                     summary['question'])
 
-    return render_template('index.html', summaries=main.summaries)
+    return render_template('charts.html', summaries=main.summaries)

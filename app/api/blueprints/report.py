@@ -12,7 +12,7 @@ def set_up(state):
 
 
 @rep_bp.route('/reports', methods=['GET'])
-def index():
+def report():
     """ Render the landing page """
     if request.method == 'GET':
         return Response([json.dumps(rep_bp.report.summaries)])

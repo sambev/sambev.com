@@ -35,7 +35,7 @@
                 <label>[- summary.question -]</label>
                 <ol>
                     [[ for top in summary.top_five ]]
-                        <li><a href="context/[- top.answer -]">[- top.answer | title -]</li>
+                        <li><a href="context/[- top.answer -]">[- top.answer | title -]: [- top.amount -]</li>
                     [[ endfor ]]
                 </ol>
             </div>

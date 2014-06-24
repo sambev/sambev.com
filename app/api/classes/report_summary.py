@@ -17,7 +17,7 @@ class ReportSummary(object):
         with open(filepath) as f:
             self.summaries = json.loads(f.read())
 
-    def getSummaryForQuestion(self, question):
+    def getSummary(self, question):
         """
         @param question (str): e.g. 'How happy are you?'
         @return summary (dict)
@@ -28,7 +28,7 @@ class ReportSummary(object):
 
     def getTopFive(self, question):
         top_five = []
-        summary = self.getSummaryForQuestion(question)
+        summary = self.getSummary(question)
         #work team was a mistake.  This shouldn't go here. But it'll do for now
         if 'Work Team' in summary['answers']:
             del summary['answers']['Work Team']
@@ -46,31 +46,31 @@ class ReportSummary(object):
 
         return top_five
 
-    def getQuestionMin(self, question):
+    def getMin(self, question):
         """
         @param {string} question
         @return {tuple} (min_value, date)
         """
-        summary = self.getSummaryForQuestion(question)
+        summary = self.getSummary(question)
         min_report = 1000000000 # this should probably not be a magic number
         day = None
         for answer in summary['answers']:
-            value = int(answer['value'])
+            value = float(answer['value'])
             if value < min_report:
                 min_report = value
                 day = date_parser.parse(answer['date'])
         return (min_report, day)
 
-    def getQuestionMax(self, question):
+    def getMax(self, question):
         """
         @param {string} question
         @return {tuple} (max_value, date)
         """
-        summary = self.getSummaryForQuestion(question)
+        summary = self.getSummary(question)
         max_report = 0
         day = None
         for answer in summary['answers']:
-            value = int(answer['value'])
+            value = float(answer['value'])
             if value > max_report:
                 max_report = value
                 day = date_parser.parse(answer['date'])
