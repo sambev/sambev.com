@@ -14,6 +14,25 @@
         <div class="small-3 columns">
             <h1>[- context.answer -]</h1>
             <p>[- context.amount -] total reports</p>
+            <p>Average battery life: [- context.getAverageBatteryLife() -]%</p>
+            <p>Weather stats:</p>
+            <ul>
+                <li>High (F): [- context.getHighTemp()[0] -]</li>
+                <li>Average (F): [- context.getAverageTemp()[0] | round(2) -]</li>
+                <li>Low (F): [- context.getLowTemp()[0] -]</li>
+                <li>Wind average: [- context.getWindAverage() | round(2) -] mph</li>
+                <li>Wind low: [- context.getWindMin() | round(2) -] mph</li>
+                <li>Wind high: [- context.getWindMax() | round(2) -] mph</li>
+            </ul>
+            <p>Audio Stats:</p>
+            <ul>
+                <li>Average min: [- context.getAvgAudioMin() -]</li>
+                <li>Average max: [- context.getAvgAudioMax() -]</li>
+                <li>Average overall: [- context.getAverageAudio()[0] | round(2) -]</li>
+                <li>Peak min: [- context.getPeakAudioMin() -]</li>
+                <li>Peak max: [- context.getPeakAudioMax() -]</li>
+                <li>Peak overall: [- context.getAverageAudio()[1] | round(2) -]</li>
+            </ul>
         </div>
         [[ for question in context.questions ]]
             [[ if question in good_questions and context.questions[question] | length ]]
