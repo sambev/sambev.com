@@ -1,98 +1,8 @@
 import json
-import numpy as np
-
-
-class Context(object):
-
-    def __init__(self):
-        self.answer = ''
-        self.amount = 0
-        self.questions = {}
-        self.battery_life = []
-        self.audio = []
-        self.weather = []
-
-    def getAverageBatteryLife(self):
-        """
-        @return int
-        """
-        return int(np.mean(self.battery_life) * 100)
-
-    def getAverageTemp(self):
-        """
-        @return {tuple} First index is F, second is C
-        """
-        avg_f = np.mean([w['tempF'] for w in self.weather])
-        avg_c = np.mean([w['tempC'] for w in self.weather])
-        return (avg_f, avg_c)
-
-    def getLowTemp(self):
-        """
-        @return {tuple} first index is F, second is C
-        """
-        low_f = min([w['tempF'] for w in self.weather])
-        low_c = min([w['tempC'] for w in self.weather])
-        return (low_f, low_c)
-
-    def getHighTemp(self):
-        """
-        @return {tuple} first index is F, second is C
-        """
-        high_f = max([w['tempF'] for w in self.weather])
-        high_c = max([w['tempC'] for w in self.weather])
-        return (high_f, high_c)
-
-    def getWindAverage(self):
-        """
-        @return {float}
-        """
-        return np.mean([w['windMPH'] for w in self.weather])
-
-    def getWindMin(self):
-        """
-        @return {float}
-        """
-        return min([w['windMPH'] for w in self.weather])
-
-    def getWindMax(self):
-        """
-        @return {float}
-        """
-        return max([w['windMPH'] for w in self.weather])
-
-    def getAverageAudio(self):
-        """
-        @return {tuple} first index is avg, second is peak
-        """
-        avg_avg = np.mean([a['avg'] for a in self.audio])
-        avg_peak = np.mean([a['peak'] for a in self.audio])
-        return (avg_avg, avg_peak)
-
-    def getAvgAudioMin(self):
-        """
-        @return {float}
-        """
-        return min([a['avg'] for a in self.audio])
-
-    def getAvgAudioMax(self):
-        """
-        @return {float}
-        """
-        return max([a['avg'] for a in self.audio])
-
-    def getPeakAudioMin(self):
-        """
-        @return {float}
-        """
-        return min([a['peak'] for a in self.audio])
-
-    def getPeakAudioMax(self):
-        """
-        @return {float}
-        """
-        return max([a['peak'] for a in self.audio])
-
-
+from app.api.classes.context import Context
+from app.api.classes.battery import BatteryData
+from app.api.classes.audio import AudioData
+from app.api.classes.weather import WeatherData
 
 class ReportsAPI(object):
 
@@ -116,13 +26,16 @@ class ReportsAPI(object):
         """
         context = Context()
         context.answer = answer
+        battery_data = []
+        audio_data = []
+        weather_data = []
         for report in self.reports:
             if self._reportHasAnswer(report, answer):
                 context.amount += 1
-                context.battery_life.append(report['battery'])
-                context.audio.append(report['audio'])
+                battery_data.append(report['battery'])
+                audio_data.append(report['audio'])
                 if 'weather' in report:
-                    context.weather.append(report['weather'])
+                    weather_data.append(report['weather'])
                 for resp in report['responses']:
                     question = resp['questionPrompt']
                     if question not in context.questions:
@@ -143,6 +56,9 @@ class ReportsAPI(object):
                             context.questions[question][location] = 1
                         else:
                             context.questions[question][location] += 1
+        context.battery = BatteryData(battery_data)
+        context.audio = AudioData(audio_data)
+        context.weather = WeatherData(weather_data)
         return context
 
     def _reportHasAnswer(self, report, answer):

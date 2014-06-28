@@ -14,29 +14,37 @@
         <div class="small-3 columns">
             <h1>[- context.answer -]</h1>
             <p>[- context.amount -] total reports</p>
-            <p>Average battery life: [- context.getAverageBatteryLife() -]%</p>
+        </div>
+        <div class="small-3 columns">
+            <p>Average battery life: [- context.battery.average -]%</p>
+        </div>
+        <div class="small-3 columns">
             <p>Weather stats:</p>
             <ul>
-                <li>High (F): [- context.getHighTemp()[0] -]</li>
-                <li>Average (F): [- context.getAverageTemp()[0] | round(2) -]</li>
-                <li>Low (F): [- context.getLowTemp()[0] -]</li>
-                <li>Wind average: [- context.getWindAverage() | round(2) -] mph</li>
-                <li>Wind low: [- context.getWindMin() | round(2) -] mph</li>
-                <li>Wind high: [- context.getWindMax() | round(2) -] mph</li>
-            </ul>
-            <p>Audio Stats:</p>
-            <ul>
-                <li>Average min: [- context.getAvgAudioMin() -]</li>
-                <li>Average max: [- context.getAvgAudioMax() -]</li>
-                <li>Average overall: [- context.getAverageAudio()[0] | round(2) -]</li>
-                <li>Peak min: [- context.getPeakAudioMin() -]</li>
-                <li>Peak max: [- context.getPeakAudioMax() -]</li>
-                <li>Peak overall: [- context.getAverageAudio()[1] | round(2) -]</li>
+                <li>High (F): [- context.weather.high_f -]</li>
+                <li>Average (F): [- context.weather.avg_f | round(2) -]</li>
+                <li>Low (F): [- context.weather.low_f -]</li>
+                <li>Wind average: [- context.weather.wind_avg | round(2) -] mph</li>
+                <li>Wind low: [- context.weather.wind_low | round(2) -] mph</li>
+                <li>Wind high: [- context.weather.wind_high | round(2) -] mph</li>
             </ul>
         </div>
+        <div class="small-3 columns">
+            <p>Audio Stats:</p>
+            <ul>
+                <li>Average min: [- context.audio.avg_min -]</li>
+                <li>Average max: [- context.audio.avg_max -]</li>
+                <li>Average overall: [- context.audio.avg_avg | round(2) -]</li>
+                <li>Peak min: [- context.audio.peak_min -]</li>
+                <li>Peak max: [- context.audio.peak_max -]</li>
+                <li>Peak overall: [- context.audio.peak_avg | round(2) -]</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
         [[ for question in context.questions ]]
             [[ if question in good_questions and context.questions[question] | length ]]
-                <div class="small-3 columns">
+                <div class="small-4 columns">
                     <p>[- question -]</p>
                     <ul>
                     [[ for answer in context.questions[question] ]]

@@ -17,5 +17,4 @@ def set_up(state):
 def who_endpoint():
     if request.method == 'GET':
         top_five = who_bp.summary.getTopFive('Who are you with?')
-        print top_five
         return render_template('who.html', top_five=top_five)
