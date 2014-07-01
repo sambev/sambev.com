@@ -54,3 +54,9 @@ def index():
     return render_template('index.html', summary=main.summaries,
                            summaries=summaries,
                            total=total)
+
+
+@main.route('/about', methods=['GET'])
+def about():
+    if request.method == 'GET':
+        return render_template('about.html')

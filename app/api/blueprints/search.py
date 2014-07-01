@@ -23,7 +23,6 @@ def who_page():
 def get_name(name):
     if request.method == 'GET':
         context = search_bp.api.getContext(name)
-        print context
         if context:
             return Response(json.dumps(context.to_json()))
         else:
