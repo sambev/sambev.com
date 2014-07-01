@@ -1,0 +1,80 @@
+[[ extends 'base.html' ]]
+
+[[ block header ]]
+[[ endblock ]]
+
+[[ block body ]]
+    <div ng-app="searchApp">
+        <div ng-controller="searchCtrl">
+            <div class="row">
+                <div class="small-8 columns">
+                    <h1>{{ context.answer }}</h1>
+                    <p>{{ context.amount }} total reports</p>
+                </div>
+                <div class="small-4 columns">
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input ng-model="name" type="text" placeholder="Name">
+                        </div>
+                        <div class="small-2 columns">
+                            <a href="#"
+                                class="button postfix"
+                                ng-click="search(name)">Search</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 columns">
+                    <h3>Misc stats:</h3>
+                    <p>Average battery life: {{ context.battery.average }}%</p>
+                </div>
+                <div class="small-4 columns">
+                    <h3>Weather stats:</h3>
+                    <ul>
+                        <li>High (F): {{ context.weather.high_f }}</li>
+                        <li>Average (F): {{ context.weather.avg_f | number:2 }}</li>
+                        <li>Low (F): {{ context.weather.low_f }}</li>
+                        <li>Wind average: {{ context.weather.wind_avg | number:2 }} mph</li>
+                        <li>Wind low: {{ context.weather.wind_low | number:2 }} mph</li>
+                        <li>Wind high: {{ context.weather.wind_high | number:2 }} mph</li>
+                    </ul>
+                </div>
+                <div class="small-4 columns">
+                    <h3>Audio Stats:</h3>
+                    <ul>
+                        <li>Average min: {{ context.audio.avg_min }}</li>
+                        <li>Average max: {{ context.audio.avg_max }}</li>
+                        <li>Average overall: {{ context.audio.avg_avg | number:2 }}</li>
+                        <li>Peak min: {{ context.audio.peak_min }}</li>
+                        <li>Peak max: {{ context.audio.peak_max }}</li>
+                        <li>Peak overall: {{ context.audio.peak_avg | number:2 }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div ng-repeat="question in context.questions">
+                    <div class="small-4 columns" ng-if="question.answers">
+                        <h3>{{ question.question }}</h3>
+                        <div class="answer_column">
+                            <div ng-repeat="answer in question.answers | orderBy:-answer.amount">
+                                <a href="#" ng-click="search(answer.answer)">{{ answer.answer }}:</a>
+                                <span class="answer_amount">{{ answer.amount }}</span>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+[[ endblock ]]
+
+[[ block footer ]]
+    <script src="/static/vendor/angular/angular.min.js"></script>
+    <script src="/static/vendor/lodash/dist/lodash.js"></script>
+    <script src="/static/js/search.js"></script>
+[[ endblock ]]

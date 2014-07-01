@@ -32,3 +32,17 @@ class WeatherData(object):
         @return {tuple} first index is F, second is C
         """
         return (self.high_f, self.high_c)
+
+    def to_json(self):
+        return {
+            'data': self.data,
+            'avg_f': self.avg_f,
+            'avg_c': self.avg_c,
+            'low_f': self.low_f,
+            'low_c': self.low_c,
+            'high_f': self.high_f,
+            'high_c': self.high_c,
+            'wind_avg': self.wind_avg,
+            'wind_low': self.wind_low,
+            'wind_high': self.wind_high
+        }

@@ -38,24 +38,16 @@ class ReportsAPI(object):
                     weather_data.append(report['weather'])
                 for resp in report['responses']:
                     question = resp['questionPrompt']
-                    if question not in context.questions:
-                        context.questions[question] = {}
+                    if not context.has_question(question):
+                        context.add_question(question)
                     if 'tokens' in resp:
                         for token in resp['tokens']:
-                            if token == answer:
-                                pass
-                            elif token not in context.questions[question]:
-                                context.questions[question][token] = 1
-                            else:
-                                context.questions[question][token] += 1
+                            if token != answer:
+                                context.add_answer(question, token)
                     elif 'locationResponse' in resp:
                         location = resp['locationResponse']['text']
-                        if answer == location:
-                            pass
-                        elif location not in context.questions[question]:
-                            context.questions[question][location] = 1
-                        else:
-                            context.questions[question][location] += 1
+                        if answer != location:
+                            context.add_answer(question, location)
         context.battery = BatteryData(battery_data)
         context.audio = AudioData(audio_data)
         context.weather = WeatherData(weather_data)
