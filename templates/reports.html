@@ -59,9 +59,9 @@
                     <div class="small-4 columns">
                         <h3>Where are you?</h3>
                         <div class="answer_column">
-                            <div ng-repeat="(name, value) in context.places">
-                                <a href="#" ng-click="search(name)">{{ name }}:</a>
-                                <span class="answer_amount">{{ value }}</span>
+                            <div ng-repeat="place in context.places">
+                                <a href="#" ng-click="search(place.name)">{{ place.name }}:</a>
+                                <span class="answer_amount">{{ place.amount }}</span>
                                 <br><br>
                             </div>
                         </div>
@@ -70,9 +70,9 @@
                     <div class="small-4 columns">
                         <h3>What are you doing?</h3>
                         <div class="answer_column">
-                            <div ng-repeat="(name, value) in context.activities">
-                                <a href="#" ng-click="search(name)">{{ name }}:</a>
-                                <span class="answer_amount">{{ value }}</span>
+                            <div ng-repeat="activity in context.activities">
+                                <a href="#" ng-click="search(activity.name)">{{ activity.name }}:</a>
+                                <span class="answer_amount">{{ activity.amount }}</span>
                                 <br><br>
                             </div>
                         </div>

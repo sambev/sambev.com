@@ -38,9 +38,9 @@ searchApp.controller('searchCtrl', [
             audio: {
                 raw: []
             },
-            people: {},
-            places: {},
-            activities: {}
+            people: [],
+            places: [],
+            activities: []
         };
 
         $scope.reset = function () {
@@ -50,8 +50,8 @@ searchApp.controller('searchCtrl', [
             $scope.context.battery.raw = [];
             $scope.context.weather.raw = [];
             $scope.context.people = [];
-            $scope.context.places = {};
-            $scope.context.activities = {};
+            $scope.context.places = [];
+            $scope.context.activities = [];
         }
 
         $scope.search = function (query) {
@@ -88,22 +88,40 @@ searchApp.controller('searchCtrl', [
                                 });
                                 break;
                             case 'Where are you?':
-                                var place = response.locationResponse.text;
-                                if (query != place) {
-                                    if (_.has($scope.context.places, place)) {
-                                        $scope.context.places[place]++;
-                                    } else {
-                                        $scope.context.places[place] = 1;
+                                var token = response.locationResponse.text;
+                                if (query != token) {
+                                    var has_token = false;
+                                    _.each($scope.context.places, function (place) {
+                                        if (place.name == token) {
+                                            place.amount++;
+                                            has_token = true;
+                                        }
+                                    });
+                                    if (!has_token) {
+                                        var new_place = {
+                                            name: token,
+                                            amount: 1
+                                        };
+                                        $scope.context.places.push(new_place);
                                     }
                                 }
                                 break;
                             case 'What are you doing?':
                                 _.each(response.tokens, function (token) {
                                     if (query != token) {
-                                        if (_.has($scope.context.activities, token)) {
-                                            $scope.context.activities[token]++;
-                                        } else {
-                                            $scope.context.activities[token] = 1;
+                                        var has_token = false;
+                                        _.each($scope.context.activities, function (activity) {
+                                            if (activity.name == token) {
+                                                activity.amount++;
+                                                has_token = true;
+                                            }
+                                        });
+                                        if (!has_token) {
+                                            var new_activity = {
+                                                name: token,
+                                                amount: 1
+                                            };
+                                            $scope.context.activities.push(new_activity);
                                         }
                                     }
                                 });
@@ -111,7 +129,7 @@ searchApp.controller('searchCtrl', [
                         }
                     });
                 });
-                $scope.context.people.sort(function (a, b) {
+                function sortAmounts (a, b) {
                     if (a.amount > b.amount) {
                         return -1;
                     }
@@ -119,6 +137,15 @@ searchApp.controller('searchCtrl', [
                         return 1;
                     }
                     return 0;
+                }
+                $scope.context.people.sort(function (a, b) {
+                    return sortAmounts(a, b);
+                });
+                $scope.context.places.sort(function (a, b) {
+                    return sortAmounts(a, b);
+                });
+                $scope.context.activities.sort(function (a, b) {
+                    return sortAmounts(a, b);
                 });
                 console.log($scope.context);
             });
