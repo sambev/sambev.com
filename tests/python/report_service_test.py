@@ -48,7 +48,7 @@ class ReportServiceTest(unittest.TestCase):
         reports = self.service.getLocationReports('Where are you?', 'Home apt')
         self.assertEquals(len(reports), 246)
 
-    def testGetGeoJSONData(self):
+    def testGetGeoJSONDataForToken(self):
         """It should be able to return the geojson data for a token"""
         geo_data = self.service.getGeoJSONData('Who are you with?', 'Marcos')
         self.assertTrue('type' in geo_data[0])
@@ -57,6 +57,18 @@ class ReportServiceTest(unittest.TestCase):
         self.assertTrue('coordinates' in geo_data[0]['geometry'])
         self.assertTrue('properties' in geo_data[0])
         self.assertTrue('name' in geo_data[0]['properties'])
+        self.assertEquals(245, len(geo_data))
+
+    def testGetGeoJSONDataAll(self):
+        """Should be able to get get all of the geojson data"""
+        geo_data = self.service.getGeoJSONData()
+        self.assertTrue('type' in geo_data[0])
+        self.assertTrue('geometry' in geo_data[0])
+        self.assertTrue('type' in geo_data[0]['geometry'])
+        self.assertTrue('coordinates' in geo_data[0]['geometry'])
+        self.assertTrue('properties' in geo_data[0])
+        self.assertTrue('name' in geo_data[0]['properties'])
+        self.assertEquals(1303, len(geo_data))
 
 if __name__ == '__main__':
     unittest.main()

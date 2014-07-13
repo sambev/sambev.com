@@ -11,9 +11,11 @@
 
 [[ block header ]]
     <link rel="stylesheet" type="text/css" href="static/css/chart.css">
+    <link href="https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css" rel="stylesheet" />
 [[ endblock ]]
 
 [[ block body ]]
+<div ng-app="reportApp">
     <div class="row">
         <div class="small-12 columns">
             <input id="happy_check" type="checkbox" />
@@ -38,43 +40,23 @@
     </div>
     <hr>
     <div class="row">
-        <div class="small-3 columns">
-            <h3 class="stat-title">Topic</h3>
-        </div>
-        <div class="small-3 columns">
-            <h3 class="stat-title">Minimum</h3>
-        </div>
-        <div class="small-3 columns">
-            <h3 class="stat-title">Average</h3>
-        </div>
-        <div class="small-3 columns">
-            <h3 class="stat-title">Maximum</h3>
+        <div class="small-10 columns end">
+            <div ng-controller="MainMapController">
+                <div id="map" style="height: 400px;"></div>
+            </div>
         </div>
     </div>
-    [[ for summary in summaries ]]
-    <div class="row">
-        <div class="small-3 columns">
-            <h4>[- pretty_questions[summary['question']] -]</h4>
-        </div>
-        <div class="small-3 columns">
-            <span class="stat-value">[- summary['min'][0] | int -]</span><br />
-            <span class="stat-date">[- summary['min'][1].date() -]</span>
-        </div>
-        <div class="small-3 columns">
-            <span class="stat-value">[- summary['average'] | round(1) -]</span><br />
-        </div>
-        <div class="small-3 columns end">
-            <span class="stat-value">[- summary['max'][0] | int -]</span><br />
-            <span class="stat-date">[- summary['max'][1].date() -]</span><br />
-        </div>
-    </div>
-    [[ endfor ]]
-
+</div>
 [[ endblock ]]
 
 [[ block footer ]]
     <script src="static/vendor/d3/d3.min.js"></script>
+    <script src="/static/vendor/angular/angular.min.js"></script>
+    <script src="/static/js/mapbox/mapbox.js"></script>
     <script src="static/vendor/lodash/dist/lodash.min.js"></script>
     <script src="static/js/chart.js"></script>
     <script src="static/js/events.js"></script>
+    <script src="/static/js/reports/modules/reports.js"></script>
+    <script src="/static/js/reports/services/geoJSONService.js"></script>
+    <script src="/static/js/reports/controllers/MainMapController.js"></script>
 [[ endblock ]]
