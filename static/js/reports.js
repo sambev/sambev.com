@@ -183,21 +183,23 @@ function getContext(resp, $scope, query) {
                     });
                     break;
                 case 'Where are you?':
-                    var token = response.locationResponse.text;
-                    if (query != token) {
-                        var has_token = false;
-                        _.each($scope.context.places, function (place) {
-                            if (place.name == token) {
-                                place.amount++;
-                                has_token = true;
+                    if (response.locationResponse) {
+                        var token = response.locationResponse.text;
+                        if (query != token) {
+                            var has_token = false;
+                            _.each($scope.context.places, function (place) {
+                                if (place.name == token) {
+                                    place.amount++;
+                                    has_token = true;
+                                }
+                            });
+                            if (!has_token) {
+                                var new_place = {
+                                    name: token,
+                                    amount: 1
+                                };
+                                $scope.context.places.push(new_place);
                             }
-                        });
-                        if (!has_token) {
-                            var new_place = {
-                                name: token,
-                                amount: 1
-                            };
-                            $scope.context.places.push(new_place);
                         }
                     }
                     break;

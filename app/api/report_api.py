@@ -5,7 +5,7 @@ from config.settings import SETTINGS
 class ReportService(object):
 
     def __init__(self):
-        config = SETTINGS['test']
+        config = SETTINGS['dev']
         self.client = MongoClient(config['DB_URI'])
         self.db = self.client[config['DB_NAME']]
         self.collection = self.db[config['COLLECTION']]

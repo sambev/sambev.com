@@ -5,7 +5,7 @@ SETTINGS = {
     'dev': {
         'DB_URI': 'mongodb://localhost:27017',
         'DB_NAME': 'reports',
-        'COLLECTIONS': 'snapshots',
+        'COLLECTION': 'snapshots',
         'DEBUG': True,
         'SECRET_KEY': 'make this super secret'
     },
