@@ -1,7 +1,11 @@
 .answer_column {
-  width:80%
+  border: solid 1px #000;
+  height: 300px;
+  overflow: scroll;
+  padding: 10px 20px;
+  width:80%;
 }
 
 .answer_amount {
-  float:right
+  float:right;
 }

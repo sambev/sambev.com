@@ -1,7 +1,8 @@
 import json
 from flask import Blueprint, request, render_template, Response
 from app.api.classes.report_summary import ReportSummary
-from app.api.classes.reports import ReportsAPI
+from app.api.report_api import ReportService
+
 
 main = Blueprint('main', __name__,
                  template_folder='templates')
@@ -20,7 +21,6 @@ numeric_questions = [
 @main.record
 def set_up(state):
     main.summary = ReportSummary('static/data/report-summary.json')
-    main.reports = ReportsAPI('static/data/reporter-export.json')
     main.summaries = main.summary.summaries
 
 
@@ -37,8 +37,6 @@ def index():
             'How many coffees did you have today?'
         ]
         summaries = []
-        total = len(main.reports.reports)
-
         for question in numeric_questions:
             new_summary = {}
             new_summary['question'] = question
@@ -52,8 +50,7 @@ def index():
                 del main.summaries[main.summaries.index(summary)]
 
     return render_template('index.html', summary=main.summaries,
-                           summaries=summaries,
-                           total=total)
+                           summaries=summaries)
 
 
 @main.route('/about', methods=['GET'])
