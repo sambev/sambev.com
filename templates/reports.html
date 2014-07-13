@@ -1,13 +1,12 @@
 [[ extends 'base.html' ]]
 
 [[ block header ]]
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
+    <link href="https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css" rel="stylesheet" />
 [[ endblock ]]
 
 [[ block body ]]
-    <div ng-app="searchApp">
-        <div ng-controller="searchCtrl">
+    <div ng-app="contextApp">
+        <div ng-controller="ContextSearchController">
             <div class="row">
                 <div class="small-8 columns">
                     <h1>{{ context.answer }}</h1>
@@ -99,9 +98,12 @@
 [[ endblock ]]
 
 [[ block footer ]]
+    <script src="/static/js/mapbox/mapbox.js"></script>
     <script src="/static/vendor/angular/angular.min.js"></script>
     <script src="/static/vendor/lodash/dist/lodash.js"></script>
-    <script src="/static/js/reports.js"></script>
-    <script>
-    </script>
+    <script src="/static/js/reports/modules/reports.js"></script>
+    <script src="/static/js/reports/modules/context.js"></script>
+    <script src="/static/js/reports/services/contextService.js"></script>
+    <script src="/static/js/reports/services/geoJSONService.js"></script>
+    <script src="/static/js/reports/controllers/ContextSearchController.js"></script>
 [[ endblock ]]
