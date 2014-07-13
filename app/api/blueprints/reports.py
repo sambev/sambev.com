@@ -36,3 +36,10 @@ def answeredAPI(question, answer):
         rs = ReportService()
         reports = rs.getAnsweredOptions(question, answer)
         return Response(json.dumps(reports))
+
+@reports_bp.route('/geojson/<string:question>/<string:answer>', methods=['GET'])
+def getGeoJSON(question, answer):
+    if request.method == 'GET':
+        rs = ReportService()
+        geojson = rs.getGeoJSONData(question, answer)
+        return Response(json.dumps(geojson))

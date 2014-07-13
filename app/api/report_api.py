@@ -45,6 +45,48 @@ class ReportService(object):
             query['responses.locationResponse.text'] = answer
         return self._query(query, filters)
 
+    def getGeoJSONData(self, question, answer=None):
+        """
+        @example reponse:
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [125.6, 10.1]
+                },
+                "properties": {
+                    "name": "Dinagat Islands"
+                }
+            }
+        @param String question
+        @param String answer
+        @return dict data
+        """
+        location_filter = {
+            'location.latitude': 1,
+            'location.longitude': 1,
+            'responses.locationResponse.text': 1
+        }
+        reports = self.getReportsByToken(question, answer, location_filter)
+        geo_data = []
+        for rep in reports:
+            new_geo = {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [
+                        rep['location']['longitude'],
+                        rep['location']['latitude']
+                    ]
+                },
+                'properties': {}
+            }
+            for resp in rep['responses']:
+                if 'locationResponse' in resp:
+                    new_geo['properties']['name'] = resp['locationResponse']['text']
+            geo_data.append(new_geo)
+        return geo_data
+
     def _query(self, query, filters=[]):
         """
         @param dict query
