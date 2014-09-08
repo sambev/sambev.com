@@ -93,9 +93,10 @@ class ReportService(object):
                 'properties': {}
             }
 
-            for resp in rep['responses']:
-                if 'locationResponse' in resp:
-                    new_geo['properties']['name'] = resp['locationResponse']['text']
+            if 'responses' in rep:
+                for resp in rep['responses']:
+                    if 'locationResponse' in resp:
+                        new_geo['properties']['name'] = resp['locationResponse']['text']
 
             geo_data.append(new_geo)
 
