@@ -1,5 +1,5 @@
 import unittest
-from app.api.report_api import ReportService
+from app.services.report_api import ReportService
 
 
 class ReportServiceTest(unittest.TestCase):

@@ -1,76 +1,29 @@
 module.exports = function(grunt) {
-    var glob = {
-        scss: [
-            'static/scss/*.scss'
-        ],
-        python: [
-            '*.py',
-            'blueprints/*.py',
-            'config/*.py',
-            'tests/python/*.py',
-            'util/python/*.py'
-        ]
-    };
-
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        sass: {
-            dist: {
+        less: {
+            development: {
                 options: {
-                    quiet: true,
-                    style: 'compressed'
+                    compress: true
                 },
                 files: {
-                    'static/css/base.css': 'static/scss/base.scss',
-                    'static/css/chart.css': 'static/scss/chart.scss',
+                    'static/css/base.css': 'static/less/base.less',
                 }
             }
         },
 
-        scsslint: {
-            allFiles: ['static/scss/*.scss'],
-            options: {
-                config: 'config/scss-lint.yml',
-                reporterOutput: 'build/lint/scss-lint-report.xml'
-            },
-        },
-
-        shell: {
-            pep8: {
-                options: {
-                    stdout: true
-                },
-                command: [
-                    'pep8 *.py',
-                    'pep8 app/api/blueprints/*.py',
-                    'pep8 app/api/classes/*.py',
-                    'pep8 util/*.py',
-                    'pep8 config/*.py',
-                    'pep8 tests/python/*.py'
-                ].join(';')
-            }
-        },
-
         watch: {
-            scss: {
-                files: glob.scss,
-                tasks: ['sass', 'quality']
+            less: {
+                files: 'static/less/*.less',
+                tasks: ['less']
             },
-            pep8: {
-                files: glob.python,
-                tasks: ['shell:pep8']
-            }
         }
     });
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('scss', ['scss']);
-    grunt.registerTask('quality', ['scsslint', 'shell:pep8']);
-    grunt.registerTask('pep8', ['shell:pep8'])
+    grunt.registerTask('less', ['less']);
 
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-scss-lint');
-    grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-contrib-less');
 }

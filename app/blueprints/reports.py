@@ -1,10 +1,10 @@
 import json
 from flask import Blueprint, request, Response, render_template
-from app.api.report_api import ReportService
+from app.services.report_api import ReportService
 
 reports_bp = Blueprint('reports_bp', __name__, template_folder='templates')
 
-@reports_bp.route('/myreports', methods=['GET'])
+@reports_bp.route('/reports', methods=['GET'])
 def reportPage():
     if request.method == 'GET':
         return render_template('reports.html')

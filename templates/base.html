@@ -8,23 +8,27 @@
     [[ endblock ]]
 </head>
 <body>
-    <div class="row">
-        <header>
-            <div class="small-3 columns">
-                <a href="/"><h1>sambev.com</h1></a>
-                <span class="subtitle">I have no idea what I am doing</span>
-            </div>
-            <div class="small-9 columns">
-                <div class="header-tab">
-                    <a class="sb-button" href="/myreports">Reports</a>
-                    <a class="sb-button" href="/about">About Me</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="page-header">
+                    <h1>sambev.com <small>I have no idea what I am doing</small></h1>
                 </div>
             </div>
-        </header>
+            <div class="col-xs-4">
+                <ul class="nav nav-pills page-header">
+                    <li class="[- 'active' if active == 'home' -]"><a href="/">Home</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li class="[- 'active' if active == 'about' -]"><a href="/about">About</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
     </div>
-    <hr>
-    [[ block body ]]
-    [[ endblock ]]
+    <div class="container">
+        [[ block body ]]
+        [[ endblock ]]
+    </div>
 
     [[ block footer ]]
     [[ endblock ]]
