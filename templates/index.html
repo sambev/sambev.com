@@ -1,18 +1,345 @@
-[[ set pretty_questions = {
-    'How happy are you?': 'Happiness',
-    'How healthy do you feel?': 'Health',
-    'What did you weigh?': 'Weight',
-    'How many steps today?': 'Steps',
-    'How many floors?': 'Floors',
-    'How many miles': 'Miles'
-}]]
-
 [[ extends 'base.html' ]]
 
 [[ block header ]]
 [[ endblock ]]
 
 [[ block body ]]
+
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">1763</p>
+                <small>Reports</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">216</p>
+                <small>Days</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">8.2</p>
+                <small>Avg/Day</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">263</p>
+                <small>Tokens</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">42</p>
+                <small>Locations</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">154</p>
+                <small>People</small>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading center">
+                    <h3 class="panel-title">Weight (lbs)</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Low: 200</p>
+                            <p>Avg: 207</p>
+                            <p>High: 213</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <h1>201</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-warning">
+                <div class="panel-heading center">
+                    <h6 class="panel-title">Steps</h6>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Low: 2,230</p>
+                            <p>Avg: 9,543</p>
+                            <p>High: 20,000</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <h1>7,890</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-success">
+                <div class="panel-heading center">
+                    <h6 class="panel-title">Sleep Quality</h6>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Low: 39%</p>
+                            <p>Avg: 87%</p>
+                            <p>High: 100%</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <h1>74%</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-danger">
+                <div class="panel-heading center">
+                    <h6 class="panel-title">Happiness</h6>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>Low: 3</p>
+                            <p>Avg: 8</p>
+                            <p>High: 10</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <h1>9</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <h3>People</h3>
+            <div class="progress people">
+                <div class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 100%;">
+                    Marcos - 331
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 90%;">
+                    Dean Cheesman - 263
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 84%;">
+                    Sean Brown - 228
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 73%;">
+                    Deanna Dillard - 167
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 68%;">
+                    Natalie Landrey - 153
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <h3>Places</h3>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-warning"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 100%;">
+                    InsideSales.com - 318
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-warning"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 98%;">
+                    Home apt - 306
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-warning"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 20%;">
+                    Juice 'n Java - 64
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-warning"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 19%;">
+                    Dean and Nats - 61
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-warning"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 17%;">
+                    Sam and Tiffs - 49
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <h3>Activities</h3>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-success"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 100%;">
+                    Lunch - 149
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-success"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 99%;">
+                    Hanging out - 148
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-success"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 85%;">
+                    Dinner - 132
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-success"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 75%;">
+                    Working - 112
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-success"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 43%;">
+                    Relaxing - 68
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <h3>Games</h3>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-danger"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 100%;">
+                    Sunless Sea - 7
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-danger"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 99%;">
+                    Diablo - 3
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-danger"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 85%;">
+                    CounterStrike - 2
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-danger"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 75%;">
+                    Crawl - 2
+                </div>
+            </div>
+            <div class="progress people">
+                <div class="progress-bar progress-bar-danger"
+                    role="progressbar"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style="width: 43%;">
+                    Banner Saga - 1
+                </div>
+            </div>
+        </div>
+    </div>
 [[ endblock ]]
 
 [[ block footer ]]
