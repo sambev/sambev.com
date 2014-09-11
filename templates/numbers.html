@@ -1,0 +1,96 @@
+[[ extends 'base.html' ]]
+
+[[ block header ]]
+[[ endblock ]]
+
+[[ block body ]]
+
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">1763</p>
+                <small>Reports</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">216</p>
+                <small>Days</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">8.2</p>
+                <small>Avg/Day</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">263</p>
+                <small>Tokens</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">42</p>
+                <small>Locations</small>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="well center">
+                <p class="report-title">154</p>
+                <small>People</small>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row" ng-app="reporterDash">
+        <div class="col-lg-3">
+            <rd-number-tile
+                title="'Weight (lbs)'"
+                low="200"
+                avg="207"
+                high="213"
+                current="201"
+                type="'primary'">
+            </rd-number-tile>
+        </div>
+        <div class="col-lg-3">
+            <rd-number-tile
+                title="'Steps'"
+                low="2230"
+                avg="9543"
+                high="20000"
+                current="7890"
+                type="'warning'">
+            </rd-number-tile>
+        </div>
+        <div class="col-lg-3">
+            <rd-number-tile
+                title="'Sleep Quality (%)'"
+                low="39"
+                avg="87"
+                high="100"
+                current="74"
+                type="'success'">
+            </rd-number-tile>
+        </div>
+        <div class="col-lg-3">
+            <rd-number-tile
+                title="'Happiness'"
+                low="3"
+                avg="8"
+                high="10"
+                current="9"
+                type="'danger'">
+            </rd-number-tile>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/static/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/static/js/reports/reporter-dash.js"></script>
+[[ endblock ]]
+
+[[ block footer ]]
+[[ endblock ]]

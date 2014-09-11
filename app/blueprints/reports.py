@@ -9,12 +9,14 @@ def reportPage():
     if request.method == 'GET':
         return render_template('reports.html')
 
+
 @reports_bp.route('/locations/<string:question>/<string:answer>', methods=['GET'])
 def locationAPI(question, answer):
     if request.method == 'GET':
         rs = ReportService()
         reports = rs.getLocationReports(question, answer)
         return Response(json.dumps(reports))
+
 
 @reports_bp.route('/tokens/<string:question>/<string:token>', methods=['GET'])
 def tokenAPI(question, token):
@@ -23,6 +25,7 @@ def tokenAPI(question, token):
         reports = rs.getReportsByToken(question, token)
         return Response(json.dumps(reports))
 
+
 @reports_bp.route('/numeric/<string:question>/<string:answer>', methods=['GET'])
 def numericAPI(question, answer):
     if request.method == 'GET':
@@ -30,12 +33,14 @@ def numericAPI(question, answer):
         reports = rs.getNumericReports(question, answer)
         return Response(json.dumps(reports))
 
+
 @reports_bp.route('/answered/<string:question>/<string:answer>', methods=['GET'])
 def answeredAPI(question, answer):
     if request.method == 'GET':
         rs = ReportService()
         reports = rs.getAnsweredOptions(question, answer)
         return Response(json.dumps(reports))
+
 
 @reports_bp.route('/geojson/', methods=['GET'])
 @reports_bp.route('/geojson/<string:question>/<string:answer>', methods=['GET'])

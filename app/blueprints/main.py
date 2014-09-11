@@ -12,11 +12,15 @@ def set_up(state):
 
 
 @main.route('/', methods=['GET'])
-def index():
-    """ Render the landing page """
+@main.route('/numbers', methods=['GET'])
+def numbers():
     if request.method == 'GET':
-        return render_template('index.html', active='home')
+        return render_template('numbers.html', active='numbers')
 
+@main.route('/tokens', methods=['GET'])
+def tokens():
+    if request.method == 'GET':
+        return render_template('people.html', active='tokens')
 
 @main.route('/about', methods=['GET'])
 def about():
