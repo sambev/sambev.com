@@ -26,8 +26,9 @@ def tokenAPI(question, token):
         return Response(json.dumps(reports))
 
 
+@reports_bp.route('/numeric/<string:question>/', methods=['GET'])
 @reports_bp.route('/numeric/<string:question>/<string:answer>', methods=['GET'])
-def numericAPI(question, answer):
+def numericAPI(question, answer=None):
     if request.method == 'GET':
         rs = ReportService()
         reports = rs.getNumericReports(question, answer)

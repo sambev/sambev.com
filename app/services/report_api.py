@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+from pymongo import MongoClient, ASCENDING
 from config.settings import SETTINGS
 
 
@@ -102,7 +102,7 @@ class ReportService(object):
 
         return geo_data
 
-    def _query(self, query, filters=[]):
+    def _query(self, query, filters=[], sort=ASCENDING):
         """
         @param dict query
         @param List filters
@@ -114,7 +114,7 @@ class ReportService(object):
         for filt in filters:
             query_filter[filt] = 1
 
-        data = [d for d in self.collection.find(query, query_filter)]
+        data = [d for d in self.collection.find(query, query_filter).sort('date', sort)]
 
         return data
 
