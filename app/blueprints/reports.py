@@ -7,7 +7,16 @@ reports_bp = Blueprint('reports_bp', __name__, template_folder='templates')
 @reports_bp.route('/reports', methods=['GET'])
 def reportPage():
     if request.method == 'GET':
-        return render_template('reports.html')
+        rs = ReportService()
+        reports = rs.get_all_reports()
+        return Response(json.dumps(reports))
+
+@reports_bp.route('/totals', methods=['GET'])
+def totals():
+    if request.method == 'GET':
+        rs = ReportService()
+        totals = rs.get_report_totals();
+        return Response(json.dumps(totals))
 
 
 @reports_bp.route('/locations/<string:question>/<string:answer>', methods=['GET'])

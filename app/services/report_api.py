@@ -1,6 +1,21 @@
 from pymongo import MongoClient, ASCENDING
 from config.settings import SETTINGS
+from datetime import datetime
+import dateutil.parser
 
+def parse_reporter_date(value):
+    """Parse the date from a reporterApp report.  It can be one of two formats
+    1. Stupid Apple date that is seconds from 01.01.2001
+    2. ISO date YYYY-MM-DDTHH:MM:SS
+
+    :param value {mixed} - float (case 1), string (case 2)
+    :returns datetime
+    """
+    iphone_date = 978307200
+    if type(value) == type(0.0):
+        return datetime.fromtimestamp(iphone_date + value).replace(tzinfo=None)
+    else:
+        return dateutil.parser.parse(value).replace(tzinfo=None)
 
 class ReportService(object):
 
@@ -9,6 +24,45 @@ class ReportService(object):
         self.client = MongoClient(config['DB_URI'])
         self.db = self.client[config['DB_NAME']]
         self.collection = self.db[config['COLLECTION']]
+
+    def get_all_reports(self, sort=ASCENDING):
+        return self._query({})
+
+    def get_report_totals(self):
+        totals = {
+            'reports': 0,
+            'days': 0,
+            'avg_per_day': 0,
+            'tokens': 0,
+            'locations': 0,
+            'people': 0
+        }
+
+        reports = self.get_all_reports()
+        first_date = parse_reporter_date(reports[0].get('date'))
+        last_date = parse_reporter_date(reports[-1].get('date'))
+
+        tokens = self.collection.find({
+            'responses.tokens': { '$exists': True }
+        }).distinct('responses.tokens')
+
+        locations = self.collection.find({
+            'responses.locationResponse.text': { '$exists': True }
+        }).distinct('responses.locationResponse.text')
+
+        people = self.collection.find({
+            'responses.questionPrompt': 'Who are you with?',
+            'responses.tokens': { '$exists': True }
+        }).distinct('responses.tokens')
+
+        totals['reports'] = len(reports)
+        totals['tokens'] = len(tokens)
+        totals['locations'] = len(locations)
+        totals['people'] = len([p for p in people])
+        print type(last_date), type(first_date)
+        totals['days'] = (last_date - first_date).days
+        totals['avg_per_day'] = len(reports) / (last_date - first_date).days
+        return totals
 
     def getReportsByToken(self, question, token, filters=[]):
         """

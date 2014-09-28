@@ -1,17 +1,14 @@
 var reporter = angular.module('reporter', []);
 
-reporter.controller('SummaryController', [
-    '$scope',
-    function ($scope) {
-        console.log('summary app controller');
-    }
-]);
-
-reporter.factory('QuestionService', [
+reporter.factory('reporterService', [
     '$http',
     function ($http) {
         return {
-            get_summary_data: function (answer_type, question) {
+            get_totals: function () {
+                return $http.get('/totals')
+            },
+
+            get_summary_for_question: function (answer_type, question) {
                 var url = '/' + answer_type +'/' + encodeURIComponent(question),
                     req = $http.get(url),
                     data = [],
@@ -49,13 +46,28 @@ reporter.factory('QuestionService', [
 
 reporter.controller('ReporterAppController', [
     '$scope',
-    'QuestionService',
-    function ($scope, QuestionService) {
+    'reporterService',
+    function ($scope, reporterService) {
         var weight = {};
-        QuestionService.get_summary_data('numeric', 'What did you weigh?')
+        reporterService.get_summary_for_question('numeric', 'What did you weigh?')
             .then(function (resp) {
                 $scope.weight = resp;
             });
+
+        reporterService.get_summary_for_question('numeric', 'How happy are you?')
+            .then(function (resp) {
+                $scope.happy = resp;
+            })
+    }
+]);
+
+reporter.controller('ReportTotalController', [
+    '$scope',
+    'reporterService',
+    function ($scope, reporterService) {
+        reporterService.get_totals().then(function (resp) {
+            $scope.totals = resp.data;
+        });
     }
 ]);
 
@@ -76,13 +88,14 @@ reporter.directive('rdNumberTile', function () {
                         '</div>' +
                         '<div class="panel-body">' +
                             '<div class="row">' +
-                                '<div class="col-lg-6">' +
+                                '<div class="col-lg-5">' +
                                     '<p>Low: {{ low | number: 0 }}</p>' +
                                     '<p>Avg: {{ avg | number: 0 }}</p>' +
                                     '<p>High: {{ high | number: 0 }}</p>' +
                                 '</div>' +
-                                '<div class="col-lg-6">' +
-                                    '<h1>{{ current | number: 0 }}</h1>' +
+                                '<div class="col-lg-7">' +
+                                    '<h1 class="center">{{ current | number: 0 }}</h1>' +
+                                    '<p class="center">Current</p>' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
