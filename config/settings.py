@@ -5,7 +5,8 @@ SETTINGS = {
     'dev': {
         'DB_URI': 'mongodb://localhost:27017',
         'DB_NAME': 'reports',
-        'COLLECTION': 'snapshots',
+        'REPORT_COLLECTION': 'snapshots',
+        'SLEEP_COLLECTION': 'sleepapp',
         'DEBUG': True,
         'SECRET_KEY': 'make this super secret'
     },
@@ -13,7 +14,8 @@ SETTINGS = {
     'test': {
         'DB_URI': 'mongodb://localhost:27017',
         'DB_NAME': 'reports_test',
-        'COLLECTION': 'snapshots',
+        'REPORT_COLLECTION': 'snapshots',
+        'SLEEP_COLLECTION': 'sleepapp',
         'DEBUG': True
     },
 

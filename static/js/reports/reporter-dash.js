@@ -8,37 +8,15 @@ reporter.factory('reporterService', [
                 return $http.get('/totals')
             },
 
-            get_summary_for_question: function (answer_type, question) {
-                var url = '/' + answer_type +'/' + encodeURIComponent(question),
-                    req = $http.get(url),
-                    data = [],
-                    summary = {
-                        total: 0,
-                        average: 0,
-                        min: 0,
-                        max: 0,
-                        current: 0
-                    }
+            get_summary_for_question: function (question) {
+                var url = '/summary/reports/' + encodeURIComponent(question),
+                    req = $http.get(url);
 
-                return req.then(function (resp) {
-                    angular.forEach(resp.data, function (report) {
-                        angular.forEach(report.responses, function (response) {
-                            if (response.questionPrompt == question) {
-                                if (response.numericResponse) {
-                                    data.push(+response.numericResponse);
-                                    summary.total += (+response.numericResponse);
-                                }
-                            }
-                        });
-                    });
+                return req;
+            },
 
-                    summary.average = summary.total / data.length;
-                    summary.max = _.max(data);
-                    summary.min = _.min(data);
-                    summary.current = _.last(data);
-
-                    return summary;
-                });
+            get_sleep_summary: function () {
+                return $http.get('summary/sleep/')
             }
         }
     }
@@ -49,15 +27,23 @@ reporter.controller('ReporterAppController', [
     'reporterService',
     function ($scope, reporterService) {
         var weight = {};
-        reporterService.get_summary_for_question('numeric', 'What did you weigh?')
-            .then(function (resp) {
-                $scope.weight = resp;
-            });
+        reporterService.get_summary_for_question('What did you weigh?').then(
+            function (resp) {
+                $scope.weight = resp.data;
+            }
+        );
 
-        reporterService.get_summary_for_question('numeric', 'How happy are you?')
-            .then(function (resp) {
-                $scope.happy = resp;
-            })
+        reporterService.get_summary_for_question('How happy are you?').then(
+            function (resp) {
+                $scope.happy = resp.data;
+            }
+        );
+
+        reporterService.get_sleep_summary().then(
+            function (resp) {
+                $scope.sleep = resp.data;
+            }
+        );
     }
 ]);
 
@@ -94,7 +80,7 @@ reporter.directive('rdNumberTile', function () {
                                     '<p>High: {{ high | number: 0 }}</p>' +
                                 '</div>' +
                                 '<div class="col-lg-7">' +
-                                    '<h1 class="center">{{ current | number: 0 }}</h1>' +
+                                    '<p class="current center">{{ current | number: 0 }}</p>' +
                                     '<p class="center">Current</p>' +
                                 '</div>' +
                             '</div>' +

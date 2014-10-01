@@ -23,10 +23,38 @@ class ReportService(object):
         config = SETTINGS['dev']
         self.client = MongoClient(config['DB_URI'])
         self.db = self.client[config['DB_NAME']]
-        self.collection = self.db[config['COLLECTION']]
+        self.collection = self.db[config['REPORT_COLLECTION']]
 
     def get_all_reports(self, sort=ASCENDING):
         return self._query({})
+
+    def get_summaries(self, question):
+        """Get all the summary data from all of the reports
+        :return {dict} of the summary items
+        """
+        reports = self.get_all_reports()
+        data = []
+        summary = {
+            'total': 0,
+            'average': 0,
+            'min': 0,
+            'max': 0,
+            'current': 0
+        }
+
+        for report in reports:
+            for response in report.get('responses', []):
+                if response.get('questionPrompt') == question:
+                    if response.get('numericResponse'):
+                        summary['total'] += float(response.get('numericResponse'))
+                        data.append(float(response.get('numericResponse')))
+
+        summary['average'] = summary['total'] / len(data)
+        summary['min'] = min(data)
+        summary['max'] = max(data)
+        summary['current'] = data[-1]
+
+        return summary
 
     def get_report_totals(self):
         totals = {

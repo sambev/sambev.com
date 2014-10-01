@@ -1,6 +1,7 @@
 import json
 from flask import Blueprint, request, Response, render_template
 from app.services.report_api import ReportService
+from app.services.sleepapp import SleepAppService
 
 reports_bp = Blueprint('reports_bp', __name__, template_folder='templates')
 
@@ -17,6 +18,22 @@ def totals():
         rs = ReportService()
         totals = rs.get_report_totals();
         return Response(json.dumps(totals))
+
+
+@reports_bp.route('/summary/<string:source>/', methods=['GET'])
+@reports_bp.route('/summary/<string:source>/<string:question>', methods=['GET'])
+def summary(source, question=None):
+    if request.method == 'GET':
+        summary = None
+
+        if source == 'reports':
+            rs = ReportService()
+            summary = rs.get_summaries(question)
+        elif source == 'sleep':
+            ss = SleepAppService()
+            summary = ss.get_quality_summary()
+
+        return Response(json.dumps(summary))
 
 
 @reports_bp.route('/locations/<string:question>/<string:answer>', methods=['GET'])
