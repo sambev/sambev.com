@@ -50,7 +50,7 @@ class SleepAppService(object):
             'current': 87
         }
         """
-        cur = self.collection.find({}, { 'quality': 1, '_id': 0 })
+        cur = self.collection.find({}, { 'quality': 1, '_id': 0 }).sort('start', ASCENDING)
         all_data = [int(found['quality'].strip('%')) for found in cur]
         summary = {
             'low': min(all_data),
