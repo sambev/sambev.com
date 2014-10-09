@@ -1,6 +1,6 @@
 import os
 import unittest
-from app.api.classes.reports import ReportsAPI
+from app.entities.reports import ReportsAPI
 import datetime
 
 
