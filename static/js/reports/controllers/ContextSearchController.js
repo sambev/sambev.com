@@ -7,6 +7,9 @@ contextApp.controller('ContextSearchController', [
 
         $scope.reset = function () {
             $scope.context = {};
+            $scope.peopleFilter = '';
+            $scope.placesFilter = '';
+            $scope.activityFilter = '';
         }
 
         $scope.search = function (type, question, token) {
