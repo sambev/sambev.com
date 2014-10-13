@@ -8,7 +8,7 @@
     <div ng-controller="ContextSearchController">
         <div class="row">
             <div class="col-lg-4">
-                <h1>{{ context.answer }}</h1>
+                <h1>{{ context.answer | titlecase }}</h1>
             </div>
             <div class="col-lg-2">
                 <div class="well center">
@@ -59,7 +59,7 @@
                                     <li ng-repeat="person in context.people | filter:peopleFilter">
                                         <a href="#"
                                             ng-click="search('tokens', 'Who are you with?', person.name)">
-                                            {{ person.name }} - {{ person.amount }}
+                                            {{ person.name | titlecase }} - {{ person.amount }}
                                         </a>
                                     </li>
                                 </ol>
