@@ -1,13 +1,36 @@
-var reporter = angular.module('reporter', []);
+/**
+ * @module summary - Contains all the code for getting summary data from reports
+ *
+ * @factory summaryService
+ *
+ * @controller SummaryAppController
+ * @controller SummaryTotalController
+ *
+ * @directive ndNumberTitle
+ */
+var summary = angular.module('summary', []);
 
-reporter.factory('reporterService', [
+/**
+ * @factory summaryService
+ * @dependency - $http
+ */
+summary.factory('summaryService', [
     '$http',
     function ($http) {
         return {
+            /**
+             * @method get_totals
+             * @return {$http promise}
+             */
             get_totals: function () {
                 return $http.get('/totals')
             },
 
+            /**
+             * @method get_summary_for_question
+             * @param {String} question e.g. 'Who are you with?'
+             * @return {$http promise}
+             */
             get_summary_for_question: function (question) {
                 var url = '/summary/reports/' + encodeURIComponent(question),
                     req = $http.get(url);
@@ -15,6 +38,10 @@ reporter.factory('reporterService', [
                 return req;
             },
 
+            /**
+             * @method get_sleep_summary
+             * @return {$http promise}
+             */
             get_sleep_summary: function () {
                 return $http.get('summary/sleep/')
             }
@@ -22,24 +49,29 @@ reporter.factory('reporterService', [
     }
 ]);
 
-reporter.controller('ReporterAppController', [
+/**
+ * @controller SummaryAppController
+ * @dependency - $scope
+ * @dependency - summaryService
+ */
+summary.controller('SummaryAppController', [
     '$scope',
-    'reporterService',
-    function ($scope, reporterService) {
+    'summaryService',
+    function ($scope, summaryService) {
         var weight = {};
-        reporterService.get_summary_for_question('What did you weigh?').then(
+        summaryService.get_summary_for_question('What did you weigh?').then(
             function (resp) {
                 $scope.weight = resp.data;
             }
         );
 
-        reporterService.get_summary_for_question('How happy are you?').then(
+        summaryService.get_summary_for_question('How happy are you?').then(
             function (resp) {
                 $scope.happy = resp.data;
             }
         );
 
-        reporterService.get_sleep_summary().then(
+        summaryService.get_sleep_summary().then(
             function (resp) {
                 $scope.sleep = resp.data;
             }
@@ -47,17 +79,22 @@ reporter.controller('ReporterAppController', [
     }
 ]);
 
-reporter.controller('ReportTotalController', [
+/**
+ * @controller SummaryTotal
+ * @dependency = $scope
+ * @dependency = summaryService
+ */
+summary.controller('SummaryTotalController', [
     '$scope',
-    'reporterService',
-    function ($scope, reporterService) {
-        reporterService.get_totals().then(function (resp) {
+    'summaryService',
+    function ($scope, summaryService) {
+        summaryService.get_totals().then(function (resp) {
             $scope.totals = resp.data;
         });
     }
 ]);
 
-reporter.directive('rdNumberTile', function () {
+summary.directive('rdNumberTile', function () {
     return {
         restrict: 'E',
         scope: {

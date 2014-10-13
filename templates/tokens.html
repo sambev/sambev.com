@@ -1,0 +1,153 @@
+[[ extends 'base.html' ]]
+
+[[ block header ]]
+[[ endblock ]]
+
+[[ block body ]]
+<div ng-app="contextApp">
+    <div ng-controller="ContextSearchController">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1>{{ context.answer }}</h1>
+            </div>
+            <div class="col-lg-2">
+                <div class="well center">
+                    <p class="report-title">{{ context.amount }}</p>
+                    <small>Reports</small>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="well center">
+                    <p class="report-title">{{ context.places.length }}</p>
+                    <small>Locations</small>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="well center">
+                    <p class="report-title">{{ context.people.length }}</p>
+                    <small>People</small>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="well center">
+                    <p class="report-title">{{ context.activities.length }}</p>
+                    <small>Activities</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading center">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3 class="panel-title" style="padding-top:5px;">People</h3>
+                            </div>
+                            <div class="col-lg-9">
+                                <input type="text"
+                                    class="input-sm"
+                                    placeholder="Search"
+                                    style="width:100%"
+                                    ng-model="peopleFilter" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body token-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ol>
+                                    <li ng-repeat="person in context.people | filter:peopleFilter">
+                                        <a href="#"
+                                            ng-click="search('tokens', 'Who are you with?', person.name)">
+                                            {{ person.name }} - {{ person.amount }}
+                                        </a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading center">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3 class="panel-title" style="padding-top:5px;">Places</h3>
+                            </div>
+                            <div class="col-lg-9">
+                                <input type="text"
+                                    class="input-sm"
+                                    placeholder="Search"
+                                    style="width:100%"
+                                    ng-model="placesFilter">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body token-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ol>
+                                    <li ng-repeat="place in context.places | filter:placesFilter">
+                                        <a href="#"
+                                            ng-click="search('locations', 'Where are you?', place.name)">
+                                            {{ place.name }} - {{ place.amount }}
+                                        </a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-danger">
+                    <div class="panel-heading center">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3 class="panel-title" style="padding-top:5px;">Activities</h3>
+                            </div>
+                            <div class="col-lg-9">
+                                <input type="text"
+                                    class="input-sm"
+                                    placeholder="Search"
+                                    style="width:100%"
+                                    ng-model="activityFilter">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body token-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ol>
+                                    <li ng-repeat="activity in context.activities | filter:activityFilter">
+                                        <a href="#"
+                                            ng-click="search('tokens', 'What are you doing?', activity.name)">
+                                            {{ activity.name }} - {{ activity.amount }}
+                                        </a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div id="map">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/vendor/lodash/dist/lodash.min.js"></script>
+<script src="/static/vendor/angular/angular.min.js"></script>
+<script src="/static/js/mapbox/mapbox.js"></script>
+<script src="/static/js/reports/modules/reports.js"></script>
+<script src="/static/js/reports/modules/context.js"></script>
+<script src="/static/js/reports/controllers/ContextSearchController.js"></script>
+<script src="/static/js/reports/services/contextService.js"></script>
+<script src="/static/js/reports/services/geoJSONService.js"></script>
+[[ endblock ]]

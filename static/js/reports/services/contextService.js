@@ -10,13 +10,14 @@ contextApp.factory('contextService', [
 
         /**
          * @method get_context
+         * @param {string} question
          * @param {string} answer
          * @return {$http Promise}
          */
-        contextService.get_context = function (answer) {
+        contextService.get_context = function (type, question, answer) {
             var req = $http({
                 method: 'GET',
-                url: encodeURIComponent('/tokens/Who are you with?/' + answer)
+                url: encodeURIComponent('/' + type + '/' + question + '/' + answer)
             });
             req.success(function (data) {
                 return data;
@@ -28,6 +29,12 @@ contextApp.factory('contextService', [
             return req;
         };
 
+        /**
+         * @method build_context
+         * @param {Object} data
+         * @param {Object} query
+         * @return {Object}
+         */
         contextService.build_context = function (data, query) {
             var context = {
                 answer: null,

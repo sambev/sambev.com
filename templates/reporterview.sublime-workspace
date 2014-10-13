@@ -1,0 +1,1949 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bo",
+				"border-left"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"nt",
+				"nth-child"
+			],
+			[
+				"proto",
+				"protocols"
+			],
+			[
+				"Leader",
+				"LeaderboardFactory"
+			],
+			[
+				"protoc",
+				"protocols"
+			],
+			[
+				"prot",
+				"protocols"
+			],
+			[
+				"Web",
+				"WebSocketServerFactory"
+			],
+			[
+				"create",
+				"create_connection"
+			],
+			[
+				"leader",
+				"leaderApp"
+			],
+			[
+				"pars",
+				"parse_mongo_resp"
+			],
+			[
+				"pas",
+				"parse_mongo_resp"
+			],
+			[
+				"par",
+				"parse_mongo_resp"
+			],
+			[
+				"pa",
+				"parse_mongo_resp"
+			],
+			[
+				"to",
+				"to_json"
+			],
+			[
+				"an",
+				"angular"
+			],
+			[
+				"parse",
+				"parse_args"
+			],
+			[
+				"se",
+				"service"
+			],
+			[
+				"da",
+				"DateTimeField"
+			],
+			[
+				"race",
+				"race_service"
+			],
+			[
+				"Ra",
+				"race_service"
+			],
+			[
+				"Rider",
+				"RiderService"
+			],
+			[
+				"update",
+				"update_error"
+			],
+			[
+				"Not",
+				"NotUniqueError"
+			],
+			[
+				"new",
+				"new_rider"
+			],
+			[
+				"sort",
+				"sortAmounts"
+			],
+			[
+				"sor",
+				"sortAmounts"
+			],
+			[
+				"has",
+				"has_token"
+			],
+			[
+				"question",
+				"quesitonPrompt"
+			],
+			[
+				"get",
+				"getResponseData"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"token",
+				"token_count"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"location",
+				"locationResponse"
+			],
+			[
+				"num",
+				"numericResponse"
+			],
+			[
+				"fil",
+				"filters"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"filter",
+				"query_filter"
+			],
+			[
+				"query",
+				"query_filter"
+			],
+			[
+				"queyr",
+				"query_filter"
+			],
+			[
+				"peop",
+				"people_answers"
+			],
+			[
+				"pe",
+				"people_answers"
+			],
+			[
+				"batt",
+				"batter_filter"
+			],
+			[
+				"loca",
+				"location"
+			],
+			[
+				"con",
+				"contextService"
+			],
+			[
+				"av",
+				"avg_avg"
+			],
+			[
+				"Report",
+				"ReportsAPI"
+			],
+			[
+				"who",
+				"who_bp"
+			],
+			[
+				"weateh",
+				"weather_data"
+			],
+			[
+				"audio",
+				"audio_data"
+			],
+			[
+				"batter",
+				"battery_life"
+			],
+			[
+				"weig",
+				"weight_line"
+			],
+			[
+				"remove",
+				"remove_path"
+			],
+			[
+				"remo",
+				"remove_path"
+			],
+			[
+				"happy",
+				"happy_line"
+			],
+			[
+				"add",
+				"add_path"
+			],
+			[
+				"class",
+				"class_name"
+			],
+			[
+				"we",
+				"weight_line"
+			],
+			[
+				"slee",
+				"selectAll"
+			],
+			[
+				"remoe",
+				"remove_healthy"
+			],
+			[
+				"heal",
+				"health_toggle"
+			],
+			[
+				"sle",
+				"selectAll"
+			],
+			[
+				"draw",
+				"draw_healthy"
+			],
+			[
+				"happ",
+				"happy_toggle"
+			],
+			[
+				"dra",
+				"draw_weigth"
+			],
+			[
+				"ste",
+				"step_scale"
+			],
+			[
+				"x",
+				"x_scale"
+			],
+			[
+				"tr",
+				"translate"
+			],
+			[
+				"y_",
+				"y_scale"
+			],
+			[
+				"y",
+				"y_axis"
+			],
+			[
+				"hap",
+				"happiness"
+			],
+			[
+				"str",
+				"stroke-width"
+			],
+			[
+				"cir",
+				"circle_class"
+			],
+			[
+				"skil",
+				"skill_id"
+			],
+			[
+				"text",
+				"text-anchor"
+			],
+			[
+				"tra",
+				"transition"
+			],
+			[
+				"j",
+				"jQuery"
+			],
+			[
+				"jav",
+				"JavaScript"
+			],
+			[
+				"Java",
+				"JavaScript"
+			],
+			[
+				"on",
+				"onScriptLoad"
+			],
+			[
+				"script",
+				"scriptTag"
+			],
+			[
+				"scr",
+				"scriptTag"
+			],
+			[
+				"modul",
+				"verbose_module	AngularJS"
+			],
+			[
+				"sans",
+				"sans-serif"
+			],
+			[
+				"body-fon",
+				"body-font-family"
+			],
+			[
+				"trans",
+				"translate"
+			],
+			[
+				"tran",
+				"transform"
+			],
+			[
+				"select",
+				"selectAll"
+			],
+			[
+				"print",
+				"println	println var"
+			],
+			[
+				"line",
+				"linesPerPin"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"web",
+				"webkit-transform"
+			],
+			[
+				"webkit-tr",
+				"webkit-transition"
+			],
+			[
+				"ingre",
+				"Ingredient"
+			],
+			[
+				"ingredie",
+				"ingredient"
+			],
+			[
+				"ingred",
+				"ingredients"
+			],
+			[
+				"ing",
+				"Ingredient"
+			],
+			[
+				"in",
+				"ingredients"
+			],
+			[
+				"Ins",
+				"IngredientService"
+			],
+			[
+				"P",
+				"PGraphics"
+			],
+			[
+				"Ingre",
+				"IngredientService"
+			],
+			[
+				"avail",
+				"available_ingredients"
+			],
+			[
+				"mea",
+				"meal_id"
+			],
+			[
+				"ingredi",
+				"ingredient"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"ng-sw",
+				"ng-switch	AngularJS"
+			],
+			[
+				"db",
+				"db_uri"
+			],
+			[
+				"DB",
+				"DB_NAME"
+			],
+			[
+				"getD",
+				"getDBHandle"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"re",
+				"render_template"
+			],
+			[
+				"ups",
+				"userpass2"
+			],
+			[
+				"ma",
+				"main-box-height"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"main",
+				"main-box-height"
+			],
+			[
+				"reg",
+				"register_blueprint"
+			],
+			[
+				"problem",
+				"problem_bp"
+			],
+			[
+				"problme",
+				"problem_bp"
+			],
+			[
+				"compa",
+				"company_bp"
+			],
+			[
+				"me",
+				"methods"
+			],
+			[
+				"set",
+				"SETTINGS"
+			],
+			[
+				"SE",
+				"SECRET_KEY"
+			],
+			[
+				"Set",
+				"SETTINGS"
+			],
+			[
+				"jin",
+				"jinja_env"
+			],
+			[
+				"item",
+				"item_id"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/sambev/projects/reporter_view/reporter_view/settings.py",
+			"settings":
+			{
+				"buffer_size": 2261,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/sambev/projects/reporter_view/reporter/templates/index.html",
+			"settings":
+			{
+				"buffer_size": 208,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/sambev/projects/reporter_view/reporter/static/css/base.css",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/sambev/projects/reporter_view/reporter/bower.json",
+			"settings":
+			{
+				"buffer_size": 299,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Processing/Processing.sublime-build",
+	"command_palette":
+	{
+		"height": 147.0,
+		"selected_items":
+		[
+			[
+				"sshtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"ssass",
+				"Set Syntax: Sass"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"ssj",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"gi tpush",
+				"Git: Push"
+			],
+			[
+				"ssbash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"ssruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"packalist",
+				"Package Control: List Packages"
+			],
+			[
+				"packali",
+				"Package Control: List Packages"
+			],
+			[
+				"ssjava",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ssja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"packadis",
+				"Package Control: Disable Package"
+			],
+			[
+				"packaremo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ssjson",
+				"Set Syntax: JSON"
+			],
+			[
+				"git psuh",
+				"Git: Push"
+			],
+			[
+				"packaena",
+				"Package Control: Enable Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				":x",
+				"Set Syntax: XSL"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"ssjavas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"sssas",
+				"Set Syntax: Sass"
+			],
+			[
+				"sspro",
+				"Set Syntax: Processing"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JSON"
+			],
+			[
+				"ssjav",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"sssa",
+				"Set Syntax: Sass"
+			],
+			[
+				"ssht",
+				"Set Syntax: HTML"
+			],
+			[
+				"pacak",
+				"Package Control: Install Package"
+			],
+			[
+				"ss py",
+				"Set Syntax: Python"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"sspyt",
+				"Set Syntax: Python"
+			],
+			[
+				"sshtm",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssbas",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"sspytho",
+				"Set Syntax: Python"
+			],
+			[
+				"packacon",
+				"Package Control: Install Package"
+			],
+			[
+				"ssphp",
+				"Set Syntax: PHP"
+			],
+			[
+				"sspyp",
+				"Set Syntax: PHP"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				"ssc",
+				"Set Syntax: C"
+			],
+			[
+				"ssproc",
+				"Set Syntax: Processing"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":noh",
+				"Snippet: noLights"
+			],
+			[
+				"packcont",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"package cont",
+				"Package Control: Enable Package"
+			],
+			[
+				"sscss",
+				"Set Syntax: CSS"
+			],
+			[
+				"SSHTML",
+				"Set Syntax: HTML"
+			],
+			[
+				"package control ",
+				"Package Control: Install Package"
+			],
+			[
+				"ssar",
+				"Set Syntax: Arduino"
+			],
+			[
+				"ss",
+				"Set Syntax: Arduino"
+			],
+			[
+				"ssa",
+				"Set Syntax: Arduino"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"PACKA",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 120.0,
+		"history":
+		[
+			"defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/sambev/projects/reporter_view",
+		"/Users/sambev/projects/reporter_view/reporter",
+		"/Users/sambev/projects/reporter_view/reporter/static",
+		"/Users/sambev/projects/reporter_view/reporter/static/css"
+	],
+	"file_history":
+	[
+		"/Users/sambev/projects/drtrials/server.py",
+		"/Users/sambev/projects/drtrials/static/scss/base.scss",
+		"/Users/sambev/projects/drtrials/Gruntfile.js",
+		"/Users/sambev/projects/drtrials/templates/leaderboard.html",
+		"/Users/sambev/projects/drtrials/static/scss/leaderboard.scss",
+		"/Users/sambev/projects/drtrials/static/scss/_leaderboard.scss",
+		"/Users/sambev/projects/drtrials/static/scss/_settings.scss",
+		"/Users/sambev/projects/drtrials/static/js/leaderApp.js",
+		"/Users/sambev/projects/drtrials/templates/leaderboards.html",
+		"/Users/sambev/projects/drtrials/requirements.txt",
+		"/Users/sambev/projects/drtrials/app/blueprints/rider.py",
+		"/Users/sambev/projects/drtrials/ws_server.py",
+		"/Users/sambev/projects/drtrials/node_modules/grunt/lib/grunt/option.js",
+		"/Users/sambev/projects/drtrials/README.md",
+		"/Users/sambev/projects/drtrials/static/js/socket-client.js",
+		"/Users/sambev/projects/drtrials/node_modules/grunt-contrib-watch/node_modules/tiny-lr/node_modules/faye-websocket/examples/ws.html",
+		"/Users/sambev/projects/drtrials/static/js/autobahn.min.js",
+		"/Users/sambev/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/sambev/projects/drtrials/templates/index.html",
+		"/Users/sambev/projects/drtrials/app/api/services/rider_service.py",
+		"/Users/sambev/projects/drtrials/app/blueprints/trial.py",
+		"/Users/sambev/projects/drtrials/app/api/services/trial_service.py",
+		"/Users/sambev/projects/drtrials/app/api/entities/rider.py",
+		"/Users/sambev/projects/drtrials/app/api/entities/trial.py",
+		"/Users/sambev/projects/drtrials/app/api/entities/race.py",
+		"/Users/sambev/projects/drtrials/util/parse.py",
+		"/Users/sambev/projects/drtrials/static/vendor/foundation/scss/foundation/components/_range-slider.scss",
+		"/Users/sambev/projects/drtrials/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2/test/Documents/RSS_Example.xml",
+		"/Users/sambev/projects/drtrials/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/inherits_browser.js",
+		"/Users/sambev/projects/drtrials/app/blueprints/rider_ep.py",
+		"/Users/sambev/projects/drtrials/static/js/riderApp.js",
+		"/Users/sambev/projects/drtrials/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/readme-issue.js",
+		"/Users/sambev/projects/drtrials/static/vendor/autobahnjs/doc/tutorial.rst",
+		"/Users/sambev/projects/drtrials/node_modules/grunt-contrib-watch/node_modules/.bin/tiny-lr",
+		"/Users/sambev/projects/drtrials/node_modules/grunt-contrib-watch/node_modules/tiny-lr/readme.md",
+		"/Users/sambev/projects/drtrials/static/vendor/autobahnjs/doc/tutorial_rpc.rst",
+		"/Users/sambev/projects/drtrials/app/api/services/race_service.py",
+		"/Users/sambev/projects/drtrials/race.py",
+		"/Users/sambev/projects/drtrials/vagrant-provision.sh",
+		"/Users/sambev/projects/drtrials/install.sh",
+		"/Users/sambev/projects/drtrials/Vagrantfile",
+		"/Users/sambev/projects/drtrials/node_modules/grunt/node_modules/colors/ReadMe.md",
+		"/Users/sambev/Documents/forecasts",
+		"/Users/sambev/projects/drtrials/.sass-cache/1d05f2f7027a349e4bc2239eee36c58e72333115/_settings.scssc",
+		"/Users/sambev/projects/drtrials/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2/test/Events/20-xml_entities.json",
+		"/Users/sambev/projects/drtrials/node_modules/grunt/node_modules/exit/test/fixtures/10-stderr.txt",
+		"/Users/sambev/projects/drtrials/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2/test/Events/13-long-cdata-end.json",
+		"/Users/sambev/projects/drtrials/app/blueprints/main.py",
+		"/Users/sambev/projects/drtrials/static/vendor/modernizr/feature-detects/quota-management-api.js",
+		"/Users/sambev/projects/dtrials/app/api/entities/rider.py",
+		"/Users/sambev/projects/dtrials/templates/base.html",
+		"/Users/sambev/projects/dtrials/config/setup_config.py",
+		"/Users/sambev/projects/dtrials/config/scss-lint.yml",
+		"/Users/sambev/projects/dtrials/templates/index.html",
+		"/Users/sambev/projects/sambev/static/js/reports.js",
+		"/Users/sambev/projects/sambev/server.py",
+		"/Users/sambev/projects/sambev/app/api/blueprints/reports.py",
+		"/Users/sambev/projects/sambev/app/api/report_api.py",
+		"/Users/sambev/projects/sambev/app/api/blueprints/report.py",
+		"/Users/sambev/projects/sambev/static/data/reporter-export.json",
+		"/Users/sambev/projects/sambev/README.md",
+		"/Users/sambev/projects/sambev/static/js/search.js",
+		"/Users/sambev/projects/sambev/templates/reports.html",
+		"/Users/sambev/projects/sambev/static/data/report-summary.json",
+		"/Users/sambev/projects/sambev/tests/python/report_test.py",
+		"/Users/sambev/projects/sambev/templates/base.html",
+		"/Users/sambev/projects/sambev/app/api/blueprints/main.py",
+		"/Users/sambev/projects/sambev/tests/python/report_service_test.py",
+		"/Users/sambev/projects/sambev/app/api/blueprints/tokens.py",
+		"/Users/sambev/projects/sambev/config/settings.py",
+		"/Users/sambev/projects/sambev/static/js/events.js",
+		"/Users/sambev/projects/sambev/static/vendor/modernizr/feature-detects/elem-ruby.js",
+		"/Users/sambev/projects/sambev/app/api/report_service_test.py",
+		"/Users/sambev/projects/sambev/util/pbkdf2.py",
+		"/Users/sambev/projects/sambev/app/api/blueprints/search.py",
+		"/Users/sambev/projects/sambev/templates/search.html",
+		"/Users/sambev/projects/sambev/node_modules/grunt/node_modules/minimatch/test/extglob-ending-with-state-char.js",
+		"/Users/sambev/projects/sambev/static/js/reporter-pour.js",
+		"/Users/sambev/projects/sambev/static/vendor/pourover/docs/pourover.html",
+		"/Users/sambev/projects/sambev/static/vendor/pourover/pourover.js",
+		"/Users/sambev/projects/sambev/templates/pourover_test.html",
+		"/Users/sambev/projects/sambev/static/vendor/jquery/src/var/push.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt/node_modules/glob/test/pause-resume.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt/lib/grunt/option.js",
+		"/Users/sambev/projects/sambev/static/vendor/jquery/src/outro.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt-contrib-jshint/node_modules/jshint/src/reporters/checkstyle.js",
+		"/Users/sambev/projects/sambev/static/vendor/d3/d3.js",
+		"/Users/sambev/projects/sambev/static/vendor/crossfilter/lib/dart/dual_pivot_quicksort.dart",
+		"/Users/sambev/projects/sambev/app/api/classes/location.py",
+		"/Users/sambev/projects/sambev/app/api/classes/weather.py",
+		"/Users/sambev/projects/sambev/app/api/classes/audio.py",
+		"/Users/sambev/projects/sambev/app/api/classes/battery.py",
+		"/Users/sambev/projects/sambev/app/api/classes/context.py",
+		"/Users/sambev/projects/sambev/app/api/classes/reports.py",
+		"/Users/sambev/projects/sambev/app/api/classes/report_summary.py",
+		"/Users/sambev/projects/sambev/static/vendor/dc.js/web/css/bootstrap-responsive.css",
+		"/Users/sambev/projects/sambev/app/api/classes/people.py",
+		"/Users/sambev/projects/sambev/static/scss/colors.scss",
+		"/Users/sambev/projects/sambev/static/js/chart.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt-scss-lint/LICENSE",
+		"/Users/sambev/Desktop/location.json",
+		"/Users/sambev/Library/Application Support/Sublime Text 3/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/Users/sambev/projects/sambev/static/vendor/modernizr/feature-detects/contenteditable.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt-contrib-watch/test/tasks/nospawn_test.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt/node_modules/lodash/lodash.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt/node_modules/glob/examples/usr-local.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/htmlparser2/test/Events/03-lowercase_tags.json",
+		"/Users/sambev/projects/sambev/static/vendor/lodash/dist/lodash.compat.min.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action.js",
+		"/Users/sambev/Downloads/reporter-export.json",
+		"/Users/sambev/projects/sambev/templates/about.html",
+		"/Users/sambev/projects/sambev/node_modules/grunt/node_modules/js-yaml/node_modules/esprima/test/compat.js",
+		"/Users/sambev/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/sambev/projects/sambev/static/scss/_search.scss",
+		"/Users/sambev/projects/sambev/static/scss/base.scss",
+		"/Users/sambev/projects/sambev/static/scss/_stats.scss",
+		"/Users/sambev/projects/sambev/.sass-cache/3f2ec35b16285e66932a0a11423f8102eaf9d9a1/_stats.scssc",
+		"/Users/sambev/projects/sambev/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/stat.js",
+		"/Users/sambev/projects/sambev/node_modules/grunt-contrib-sass/node_modules/chalk/node_modules/.bin/strip-ansi",
+		"/Users/sambev/projects/sambev/static/vendor/crossfilter/test/select-test.js",
+		"/Users/sambev/projects/sambev/.sass-cache/3f2ec35b16285e66932a0a11423f8102eaf9d9a1/base.scssc",
+		"/Users/sambev/projects/sambev/static/css/base.css",
+		"/Users/sambev/projects/sambev/bower.json",
+		"/Users/sambev/projects/sambev/templates/index.html",
+		"/Users/sambev/projects/sambev/node_modules/grunt-scss-lint/test/fixtures/.scss-lint-test.yml",
+		"/Users/sambev/projects/sambev/node_modules/grunt-scss-lint/.scss-lint.yml",
+		"/Users/sambev/projects/sambev/.gitignore",
+		"/Users/sambev/projects/sambev/static/js/who.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			".",
+			"",
+			".",
+			"",
+			".",
+			"",
+			".",
+			"",
+			"/Users/sambev/projects/colorbook"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"table",
+			"r=\"8\"",
+			"span",
+			"dot",
+			"<td>",
+			"img",
+			"jpg",
+			"img",
+			"</td>",
+			"</tr>",
+			"<tr>",
+			"<th>",
+			"WebSocketServerFactory",
+			"len",
+			"WebSocketServerFactory",
+			"injectables",
+			"json",
+			"\n@@",
+			"from",
+			"TrialService",
+			"rider_ep",
+			"json",
+			"query_set",
+			"riders",
+			"trial",
+			"trials",
+			"trial",
+			"races",
+			"city",
+			"delete_trial",
+			"update_trial",
+			"find_trial",
+			"create_trial",
+			"delete",
+			"delete_rider",
+			"update_rider",
+			"find_riders",
+			"create_rider",
+			"rider",
+			"name",
+			"find_trial",
+			"name",
+			"args",
+			"updated",
+			"update_rider",
+			"number",
+			"rider",
+			"Rider",
+			"rider",
+			"Trial",
+			"Rider",
+			"append",
+			"name",
+			"time",
+			"name",
+			"race",
+			"Race",
+			"race",
+			"Race",
+			"time",
+			"EmbeddedDocument",
+			"race",
+			"RaceREST",
+			"install",
+			"install-bash",
+			"bash",
+			"provision",
+			"config.vm.net",
+			"base",
+			"print",
+			"console",
+			"rider",
+			"number",
+			"rnumber",
+			"data",
+			"Object",
+			"rnumber",
+			"button",
+			"/a",
+			"a href=\"#\"",
+			"input",
+			"rid",
+			"number",
+			"error",
+			"alert-box success",
+			"success",
+			"create_success",
+			"update_error",
+			"clear_errors",
+			"round",
+			"create_error",
+			"clear_error",
+			"console",
+			"clear_errors",
+			"data",
+			"error",
+			"res",
+			"bike",
+			"new_rider",
+			"param",
+			"type",
+			"getRiders",
+			"type",
+			"selected",
+			"Save",
+			"Cargo",
+			"placeholder",
+			"Number",
+			"connect",
+			"battery",
+			"people",
+			"place",
+			"value",
+			"token",
+			"name",
+			"activity",
+			"value",
+			"name",
+			"new_place",
+			"person",
+			"places",
+			"new_person",
+			"people",
+			"name",
+			"places",
+			"context",
+			"avg",
+			"person"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"delete",
+			"update",
+			"find",
+			"create",
+			"delete",
+			"update",
+			"find",
+			"create",
+			"\"",
+			"}}",
+			"{{",
+			"number: 2",
+			"}}",
+			"{{",
+			"'",
+			"}",
+			"{",
+			"pass1",
+			"quote",
+			"",
+			": ",
+			"error=error",
+			"mongo",
+			"app.db",
+			"app.mongo",
+			"'",
+			"\"",
+			":",
+			"small",
+			"medium-3",
+			"medium",
+			"large",
+			"input",
+			"h5",
+			"]]",
+			"[["
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/sambev/projects/reporter_view/reporter_view/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/sambev/projects/reporter_view/reporter/templates/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								157,
+								157
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/sambev/projects/reporter_view/reporter/static/css/base.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/sambev/projects/reporter_view/reporter/bower.json",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.LEDStripController":
+	{
+		"height": 94.0
+	},
+	"output.arduino":
+	{
+		"height": 94.0
+	},
+	"output.board_control":
+	{
+		"height": 151.0
+	},
+	"output.button":
+	{
+		"height": 94.0
+	},
+	"output.exec":
+	{
+		"height": 199.0
+	},
+	"output.fade":
+	{
+		"height": 329.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 112.0
+	},
+	"output.git-init":
+	{
+		"height": 110.0
+	},
+	"output.git-pull":
+	{
+		"height": 110.0
+	},
+	"output.git-push":
+	{
+		"height": 92.0
+	},
+	"output.ledcontrol":
+	{
+		"height": 94.0
+	},
+	"output.ledmap":
+	{
+		"height": 144.0
+	},
+	"output.rgbled":
+	{
+		"height": 238.0
+	},
+	"output.serial_test":
+	{
+		"height": 94.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"output.stino_log":
+	{
+		"height": 94.0
+	},
+	"project": "reporterview.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"inde",
+				"reporter/templates/index.html"
+			],
+			[
+				"ws",
+				"ws_server.py"
+			],
+			[
+				"req",
+				"requirements.txt"
+			],
+			[
+				"trila",
+				"app/blueprints/trial.py"
+			],
+			[
+				"rider.py",
+				"app/blueprints/rider.py"
+			],
+			[
+				"riderser",
+				"app/api/services/rider_service.py"
+			],
+			[
+				"rider",
+				"app/blueprints/rider.py"
+			],
+			[
+				"race",
+				"app/api/entities/race.py"
+			],
+			[
+				"trial",
+				"app/api/entities/trial.py"
+			],
+			[
+				"tria",
+				"app/api/services/trial_service.py"
+			],
+			[
+				"ser",
+				"server.py"
+			],
+			[
+				"rider_ep",
+				"app/blueprints/rider_ep.py"
+			],
+			[
+				"trials",
+				"app/api/services/trial_service.py"
+			],
+			[
+				"riderap",
+				"static/js/riderApp.js"
+			],
+			[
+				"trialser",
+				"app/api/services/trial_service.py"
+			],
+			[
+				"rierser",
+				"app/api/services/rider_service.py"
+			],
+			[
+				"raceser",
+				"app/api/services/race_service.py"
+			],
+			[
+				"server.py",
+				"server.py"
+			],
+			[
+				"race.py",
+				"app/api/entities/race.py"
+			],
+			[
+				"in",
+				"install.sh"
+			],
+			[
+				"readme",
+				"README.md"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"main",
+				"app/blueprints/main.py"
+			],
+			[
+				"report_api",
+				"app/api/report_api.py"
+			],
+			[
+				"reprot",
+				"templates/reports.html"
+			],
+			[
+				"search",
+				"static/js/search.js"
+			],
+			[
+				"reporter",
+				"static/data/reporter-export.json"
+			],
+			[
+				"report",
+				"templates/reports.html"
+			],
+			[
+				"base.html",
+				"templates/base.html"
+			],
+			[
+				"report.py",
+				"app/api/blueprints/report.py"
+			],
+			[
+				"reporsertest",
+				"tests/python/report_service_test.py"
+			],
+			[
+				"reportexp",
+				"static/data/reporter-export.json"
+			],
+			[
+				"reportser",
+				"tests/python/report_service_test.py"
+			],
+			[
+				"report_test",
+				"tests/python/report_test.py"
+			],
+			[
+				"base",
+				"templates/base.html"
+			],
+			[
+				"index",
+				"templates/index.html"
+			],
+			[
+				"search.py",
+				"app/api/blueprints/search.py"
+			],
+			[
+				"event",
+				"static/js/events.js"
+			],
+			[
+				"pour",
+				"static/js/reporter-pour.js"
+			],
+			[
+				"pourj",
+				"static/vendor/pourover/pourover.js"
+			],
+			[
+				"reporter-ep",
+				"static/data/reporter-export.json"
+			],
+			[
+				"report-expo",
+				"static/data/reporter-export.json"
+			],
+			[
+				"reportsummar",
+				"app/api/classes/report_summary.py"
+			],
+			[
+				"reportsumm",
+				"static/data/report-summary.json"
+			],
+			[
+				"reportsu",
+				"static/data/report-summary.json"
+			],
+			[
+				"loca",
+				"app/api/classes/location.py"
+			],
+			[
+				"search.html",
+				"templates/search.html"
+			],
+			[
+				"search.js",
+				"static/js/search.js"
+			],
+			[
+				"battery",
+				"app/api/classes/battery.py"
+			],
+			[
+				"contex",
+				"app/api/classes/context.py"
+			],
+			[
+				"reports",
+				"app/api/classes/reports.py"
+			],
+			[
+				"context",
+				"app/api/classes/context.py"
+			],
+			[
+				"sear",
+				"templates/search.html"
+			],
+			[
+				"repor",
+				"app/api/blueprints/report.py"
+			],
+			[
+				"base.scs",
+				"static/scss/base.scss"
+			],
+			[
+				"base.ht",
+				"templates/base.html"
+			],
+			[
+				"context.py",
+				"app/api/classes/context.py"
+			],
+			[
+				"batter",
+				"app/api/classes/battery.py"
+			],
+			[
+				"weater",
+				"app/api/classes/weather.py"
+			],
+			[
+				"audio",
+				"app/api/classes/audio.py"
+			],
+			[
+				"who.p",
+				"app/api/blueprints/who.py"
+			],
+			[
+				"who.ht",
+				"templates/who.html"
+			],
+			[
+				"repo",
+				"static/data/reporter-export.json"
+			],
+			[
+				"context.html",
+				"templates/context.html"
+			],
+			[
+				"test",
+				"tests/python/test_reports.json"
+			],
+			[
+				"who",
+				"templates/who.html"
+			],
+			[
+				"eve",
+				"static/js/events.js"
+			],
+			[
+				"chart",
+				"static/js/chart.js"
+			],
+			[
+				"even",
+				"static/js/events.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"chart.js",
+				"static/js/chart.js"
+			],
+			[
+				"common",
+				"util/common.py"
+			],
+			[
+				"report.",
+				"app/api/blueprints/report.py"
+			],
+			[
+				"auth.py",
+				"app/api/blueprints/auth.py"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"_sett",
+				"static/scss/_settings.scss"
+			],
+			[
+				"base.scss",
+				"static/scss/base.scss"
+			],
+			[
+				"char",
+				"static/js/chart.js"
+			],
+			[
+				"rea",
+				"README.md"
+			],
+			[
+				"skil",
+				"static/data/skills.json"
+			],
+			[
+				"settings",
+				"static/scss/_settings.scss"
+			],
+			[
+				"base.css",
+				"static/scss/base.scss"
+			],
+			[
+				"editmeal",
+				"views/meals/editMeal.html"
+			],
+			[
+				"ingreserv",
+				"js/services/ingredient_service.js"
+			],
+			[
+				"mealser",
+				"js/services/meal_service.js"
+			],
+			[
+				"meal_edi",
+				"js/controllers/meal_edit_controller.js"
+			],
+			[
+				"editme",
+				"views/meals/editMeal.html"
+			],
+			[
+				"companser",
+				"js/services/company_service.js"
+			],
+			[
+				"editcomp",
+				"views/companies/editCompany.html"
+			],
+			[
+				"companyedit",
+				"js/controllers/company_edit_controller.js"
+			],
+			[
+				"edimea",
+				"views/meals/editMeal.html"
+			],
+			[
+				"companserv",
+				"js/services/company_service.js"
+			],
+			[
+				"companedit",
+				"js/controllers/company_edit_controller.js"
+			],
+			[
+				"edit",
+				"views/companies/editCompany.html"
+			],
+			[
+				"ediem",
+				"views/meals/editMeal.html"
+			],
+			[
+				"meal_ei",
+				"js/controllers/meal_edit_controller.js"
+			],
+			[
+				"meal_di",
+				"js/controllers/meal_edit_controller.js"
+			],
+			[
+				"editmea",
+				"views/meals/editMeal.html"
+			],
+			[
+				"editm",
+				"views/meals/editMeal.html"
+			],
+			[
+				"ingre",
+				"views/ingredients/ingredients.html"
+			],
+			[
+				"ingres",
+				"js/services/ingredient_service.js"
+			],
+			[
+				"ing",
+				"js/controllers/ingredient_edit_controller.js"
+			],
+			[
+				"mea",
+				"js/controllers/meal_edit_controller.js"
+			],
+			[
+				"ingreser",
+				"js/services/ingredient_service.js"
+			],
+			[
+				"meal_ser",
+				"js/services/meal_service.js"
+			],
+			[
+				"mealcon",
+				"js/controllers/meal_edit_controller.js"
+			],
+			[
+				"locat",
+				"views/locations/locations.html"
+			],
+			[
+				"ingreedit",
+				"js/controllers/ingredient_edit_controller.js"
+			],
+			[
+				"editint",
+				"views/ingredients/editIngredient.html"
+			],
+			[
+				"locationcon",
+				"js/controllers/location_controller.js"
+			],
+			[
+				"location_cont",
+				"js/controllers/location_controller.js"
+			],
+			[
+				"ingrecont",
+				"js/controllers/ingredient_controller.js"
+			],
+			[
+				"meals",
+				"views/meals/meals.html"
+			],
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"controller",
+				"static/js/controllers/signup.js"
+			],
+			[
+				"meal_con",
+				"js/controllers/meal_controller.js"
+			],
+			[
+				"mea_",
+				"js/controllers/meal_edit_controller.js"
+			],
+			[
+				"compan",
+				"views/companies/companies.html"
+			],
+			[
+				"recon",
+				"views/reconciles.html"
+			],
+			[
+				"mealsal",
+				"views/meals/mealSales.html"
+			],
+			[
+				"ingre_con",
+				"js/controllers/ingredient_controller.js"
+			],
+			[
+				"mealse",
+				"js/services/meal_service.js"
+			],
+			[
+				"locaser",
+				"js/services/location_service.js"
+			],
+			[
+				"locacon",
+				"js/controllers/location_controller.js"
+			],
+			[
+				"location",
+				"views/locations/locations.html"
+			],
+			[
+				"colors",
+				"assets/sass/colors.scss"
+			],
+			[
+				"compna",
+				"views/companies/companies.html"
+			],
+			[
+				"routers",
+				"js/routes/routes.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"sam",
+				"~/Documents/sublimeprojects/sambev.sublime-project"
+			],
+			[
+				"",
+				"/Applications/MAMP/htdocs/frontend/js/routes/inventorybackend.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 186.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

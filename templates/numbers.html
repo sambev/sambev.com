@@ -4,9 +4,9 @@
 [[ endblock ]]
 
 [[ block body ]]
-    <div ng-app="reporter">
+    <div ng-app="summary">
         <div class="row">
-            <div ng-controller="ReportTotalController">
+            <div ng-controller="SummaryTotalController">
                 <div class="col-lg-2">
                     <div class="well center">
                         <p class="report-title">{{ totals.reports }}</p>
@@ -48,7 +48,7 @@
         <br>
 
         <div class="row">
-            <div ng-controller="ReporterAppController">
+            <div ng-controller="SummaryAppController">
                 <div class="col-lg-3">
                     <rd-number-tile
                         title="'Weight (lbs)'"
@@ -95,7 +95,7 @@
 
     <script type="text/javascript" src="/static/vendor/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="/static/vendor/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/static/js/reports/reporter-dash.js"></script>
+    <script type="text/javascript" src="/static/js/summary/summary.js"></script>
 [[ endblock ]]
 
 [[ block footer ]]
