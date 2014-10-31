@@ -5,74 +5,71 @@ from app.services.sleepapp import SleepAppService
 
 reports_bp = Blueprint('reports_bp', __name__, template_folder='templates')
 
+@reports_bp.record
+def init_reports(state):
+    reports_bp.service = ReportService()
+
 @reports_bp.route('/reports', methods=['GET'])
 def reportPage():
     if request.method == 'GET':
-        rs = ReportService()
-        reports = rs.get_all_reports()
+        reports = reports_bp.service.get_all_reports()
+
         return Response(json.dumps(reports))
 
-@reports_bp.route('/totals', methods=['GET'])
+@reports_bp.route('/reports/totals', methods=['GET'])
 def totals():
     if request.method == 'GET':
-        rs = ReportService()
-        totals = rs.get_report_totals();
+        totals = reports_bp.service.get_report_totals();
+
         return Response(json.dumps(totals))
 
 
-@reports_bp.route('/summary/<string:source>/', methods=['GET'])
-@reports_bp.route('/summary/<string:source>/<string:question>', methods=['GET'])
-def summary(source, question=None):
+@reports_bp.route('/reports/summary', methods=['GET'])
+@reports_bp.route('/reports/summary/<string:question>', methods=['GET'])
+def summary(question=None):
     if request.method == 'GET':
-        summary = None
-
-        if source == 'reports':
-            rs = ReportService()
-            summary = rs.get_summaries(question)
-        elif source == 'sleep':
-            ss = SleepAppService()
-            summary = ss.get_quality_summary()
+        summary = reports_bp.service.get_summaries(question)
 
         return Response(json.dumps(summary))
 
 
-@reports_bp.route('/locations/<string:question>/<string:answer>', methods=['GET'])
+@reports_bp.route('/reports/locations/<string:question>/<string:answer>', methods=['GET'])
 def locationAPI(question, answer):
     if request.method == 'GET':
-        rs = ReportService()
-        reports = rs.getLocationReports(question, answer)
+        reports = rerports_bp.service.getLocationReports(question, answer)
+
         return Response(json.dumps(reports))
 
 
-@reports_bp.route('/tokens/<string:question>/<string:token>', methods=['GET'])
+@reports_bp.route('/reports/tokens/<string:question>/<string:token>', methods=['GET'])
 def tokenAPI(question, token):
     if request.method == 'GET':
-        rs = ReportService()
-        reports = rs.getReportsByToken(question, token)
+        reports = reports_bp.service.getReportsByToken(question, token)
+
         return Response(json.dumps(reports))
 
 
-@reports_bp.route('/numeric/<string:question>/', methods=['GET'])
-@reports_bp.route('/numeric/<string:question>/<string:answer>', methods=['GET'])
+@reports_bp.route('/reports/numeric/<string:question>/', methods=['GET'])
+@reports_bp.route('/reports/numeric/<string:question>/<string:answer>', methods=['GET'])
 def numericAPI(question, answer=None):
     if request.method == 'GET':
-        rs = ReportService()
-        reports = rs.getNumericReports(question, answer)
+        reports = reports_bp.service.getNumericReports(question, answer)
+
         return Response(json.dumps(reports))
 
 
-@reports_bp.route('/answered/<string:question>/<string:answer>', methods=['GET'])
+@reports_bp.route('/reports/answered/<string:question>/<string:answer>', methods=['GET'])
 def answeredAPI(question, answer):
     if request.method == 'GET':
-        rs = ReportService()
-        reports = rs.getAnsweredOptions(question, answer)
+        reports = reports_bp.service.getAnsweredOptions(question, answer)
+
         return Response(json.dumps(reports))
 
 
-@reports_bp.route('/geojson/', methods=['GET'])
-@reports_bp.route('/geojson/<string:question>/<string:answer>', methods=['GET'])
+@reports_bp.route('/reports/geojson/', methods=['GET'])
+@reports_bp.route('/reports/geojson/<string:question>/<string:answer>', methods=['GET'])
 def getGeoJSON(question=None, answer=None):
     if request.method == 'GET':
-        rs = ReportService()
-        geojson = rs.getGeoJSONData(question, answer)
+        geojson = reports_bp.service.getGeoJSONData(question, answer)
+
         return Response(json.dumps(geojson))

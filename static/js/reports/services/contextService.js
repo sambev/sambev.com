@@ -17,7 +17,7 @@ contextApp.factory('contextService', [
         contextService.get_context = function (type, question, answer) {
             var req = $http({
                 method: 'GET',
-                url: encodeURIComponent('/' + type + '/' + question + '/' + answer)
+                url: encodeURIComponent('/reports/' + type + '/' + question + '/' + answer)
             });
             req.success(function (data) {
                 return data;

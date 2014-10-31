@@ -23,7 +23,7 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_totals: function () {
-                return $http.get('/totals')
+                return $http.get('/reports/totals')
             },
 
             /**
@@ -32,7 +32,7 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_summary_for_question: function (question) {
-                var url = '/summary/reports/' + encodeURIComponent(question),
+                var url = '/reports/summary/' + encodeURIComponent(question),
                     req = $http.get(url);
 
                 return req;
@@ -43,7 +43,7 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_sleep_summary: function () {
-                return $http.get('summary/sleep/')
+                return $http.get('/sleep/summary/')
             }
         }
     }
