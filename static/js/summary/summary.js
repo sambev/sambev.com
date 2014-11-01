@@ -27,12 +27,36 @@ summary.factory('summaryService', [
             },
 
             /**
-             * @method get_summary_for_question
+             * @method get_summary_for_numeric_question
              * @param {String} question e.g. 'Who are you with?'
              * @return {$http promise}
              */
-            get_summary_for_question: function (question) {
-                var url = '/reports/summary/' + encodeURIComponent(question),
+            get_summary_for_numeric_question: function (question) {
+                var url = '/reports/summary/numeric/' + encodeURIComponent(question),
+                    req = $http.get(url);
+
+                return req;
+            },
+
+            /**
+             * @method get_summary_for_token_question
+             * @param {String} question e.g. 'Who are you with?'
+             * @return {$http promise}
+             */
+            get_summary_for_token_question: function (question) {
+                var url = '/reports/summary/token/' + encodeURIComponent(question),
+                    req = $http.get(url);
+
+                return req;
+            },
+
+            /**
+             * @method get_summary_for_location_question
+             * @param {String} question e.g. 'Who are you with?'
+             * @return {$http promise}
+             */
+            get_summary_for_location_question: function (question) {
+                var url = '/reports/summary/location/' + encodeURIComponent(question),
                     req = $http.get(url);
 
                 return req;
@@ -59,23 +83,40 @@ summary.controller('SummaryAppController', [
     'summaryService',
     function ($scope, summaryService) {
         var weight = {};
-        summaryService.get_summary_for_question('What did you weigh?').then(
+        summaryService.get_summary_for_numeric_question('What did you weigh?').then(
             function (resp) {
                 $scope.weight = resp.data;
             }
         );
 
-        summaryService.get_summary_for_question('How happy are you?').then(
+        summaryService.get_summary_for_numeric_question('How happy are you?').then(
             function (resp) {
                 $scope.happy = resp.data;
             }
         );
 
-        summaryService.get_sleep_summary().then(
+        summaryService.get_summary_for_token_question('Who are you with?').then(
             function (resp) {
-                $scope.sleep = resp.data;
+                $scope.people = resp.data;
             }
         );
+
+        summaryService.get_summary_for_token_question('What are you doing?').then(
+            function (resp) {
+                $scope.activities = resp.data;
+            }
+        );
+
+        summaryService.get_summary_for_location_question('Where are you?').then(
+            function (resp) {
+                $scope.places = resp.data;
+            }
+        );
+        // summaryService.get_sleep_summary().then(
+        //     function (resp) {
+        //         $scope.sleep = resp.data;
+        //     }
+        // );
     }
 ]);
 

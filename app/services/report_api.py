@@ -1,7 +1,10 @@
+from operator import itemgetter
+
 from pymongo import MongoClient, ASCENDING
-from config.settings import SETTINGS
 from datetime import datetime
 import dateutil.parser
+
+from config.settings import SETTINGS
 
 def parse_reporter_date(value):
     """Parse the date from a reporterApp report.  It can be one of two formats
@@ -28,11 +31,81 @@ class ReportService(object):
     def get_all_reports(self, sort=ASCENDING):
         return self._query({})
 
-    def get_summaries(self, question):
+    def _query(self, query, filters=[], sort=ASCENDING):
+        """
+        @param dict query
+        @param List filters
+        @return dict data
+        """
+        query_filter = {item: 1 for (item) in filters}
+        query_filter['_id'] = 0
+
+        for filt in filters:
+            query_filter[filt] = 1
+
+        data = [d for d in self.collection.find(query, query_filter).sort('date', sort)]
+
+        return data
+
+    def get_token_summary(self, question):
+        """Get the token summary from the given question
+        :param {string} question
+        :return {dict}
+        """
+        query = {
+            'responses.questionPrompt': question
+        }
+        filters = ['responses']
+        reports = self._query(query, filters)
+        summary = {}
+
+        for report in reports:
+            for response in report.get('responses', []):
+                if response.get('questionPrompt') == question:
+                    tokens = response.get('tokens')
+                    if tokens:
+                        for token in tokens:
+                            if token != 'Nate Mcbride':
+                                if token not in summary:
+                                    summary[token] = 1
+                                else:
+                                    summary[token] += 1
+
+        return sorted(summary.items(), key=itemgetter(1), reverse=True)
+
+    def get_location_summary(self, question):
+        """Get the location summary for the given questionPrompt
+        :param {string} question
+        :return {dict}
+        """
+        query = {
+            'responses.questionPrompt': question
+        }
+        filters = ['responses']
+        reports = self._query(query, filters)
+        summary = {}
+
+        for report in reports:
+            for response in report.get('responses', []):
+                if response.get('questionPrompt') == question:
+                    location = response.get('locationResponse', {}).get('text')
+                    if location not in summary:
+                        summary[location] = 1
+                    else:
+                        summary[location] += 1
+
+        print summary
+        return sorted(summary.items(), key=itemgetter(1), reverse=True)
+
+    def get_numeric_summary(self, question):
         """Get all the summary data from all of the reports
         :return {dict} of the summary items
         """
-        reports = self.get_all_reports()
+        query = {
+            'responses.questionPrompt': question
+        }
+        filters = ['responses']
+        reports = self._query(query, filters)
         data = []
         summary = {
             'total': 0,
@@ -87,7 +160,6 @@ class ReportService(object):
         totals['tokens'] = len(tokens)
         totals['locations'] = len(locations)
         totals['people'] = len([p for p in people])
-        print type(last_date), type(first_date)
         totals['days'] = (last_date - first_date).days
         totals['avg_per_day'] = len(reports) / (last_date - first_date).days
         return totals
@@ -183,20 +255,3 @@ class ReportService(object):
             geo_data.append(new_geo)
 
         return geo_data
-
-    def _query(self, query, filters=[], sort=ASCENDING):
-        """
-        @param dict query
-        @param List filters
-        @return dict data
-        """
-        query_filter = {item: 1 for (item) in filters}
-        query_filter['_id'] = 0
-
-        for filt in filters:
-            query_filter[filt] = 1
-
-        data = [d for d in self.collection.find(query, query_filter).sort('date', sort)]
-
-        return data
-

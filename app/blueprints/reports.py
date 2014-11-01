@@ -24,11 +24,26 @@ def totals():
         return Response(json.dumps(totals))
 
 
-@reports_bp.route('/reports/summary', methods=['GET'])
-@reports_bp.route('/reports/summary/<string:question>', methods=['GET'])
-def summary(question=None):
+@reports_bp.route('/reports/summary/numeric/<string:question>', methods=['GET'])
+def numeric_summary(question=None):
     if request.method == 'GET':
-        summary = reports_bp.service.get_summaries(question)
+        summary = reports_bp.service.get_numeric_summary(question)
+
+        return Response(json.dumps(summary))
+
+
+@reports_bp.route('/reports/summary/token/<string:question>', methods=['GET'])
+def token_summary(question=None):
+    if request.method == 'GET':
+        summary = reports_bp.service.get_token_summary(question)
+
+        return Response(json.dumps(summary))
+
+
+@reports_bp.route('/reports/summary/location/<string:question>', methods=['GET'])
+def location_summary(question=None):
+    if request.method == 'GET':
+        summary = reports_bp.service.get_location_summary(question)
 
         return Response(json.dumps(summary))
 
@@ -36,7 +51,7 @@ def summary(question=None):
 @reports_bp.route('/reports/locations/<string:question>/<string:answer>', methods=['GET'])
 def locationAPI(question, answer):
     if request.method == 'GET':
-        reports = rerports_bp.service.getLocationReports(question, answer)
+        reports = reports_bp.service.getLocationReports(question, answer)
 
         return Response(json.dumps(reports))
 
