@@ -8,7 +8,7 @@
  *
  * @directive ndNumberTitle
  */
-var summary = angular.module('summary', []);
+var summary = angular.module('summary', ['reportApp']);
 
 /**
  * @factory summaryService

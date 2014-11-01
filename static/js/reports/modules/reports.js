@@ -9,3 +9,7 @@ reportApp.filter('titlecase', function() {
         });
     };
 });
+
+reportApp.filter('encodeURIComponent', function() {
+    return window.encodeURIComponent;
+});

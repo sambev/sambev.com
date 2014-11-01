@@ -6,10 +6,6 @@ from app.services.report_api import ReportService
 main = Blueprint('main', __name__,
                  template_folder='templates')
 
-@main.record
-def set_up(state):
-    pass
-
 
 @main.route('/', methods=['GET'])
 @main.route('/numbers', methods=['GET'])

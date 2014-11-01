@@ -9,6 +9,11 @@ reports_bp = Blueprint('reports_bp', __name__, template_folder='templates')
 def init_reports(state):
     reports_bp.service = ReportService()
 
+@reports_bp.route('/reports/tokens/context/<string:name>', methods=['GET'])
+def token_context(name):
+    if request.method == 'GET':
+        return render_template('tokens.html', active='tokens')
+
 @reports_bp.route('/reports', methods=['GET'])
 def reportPage():
     if request.method == 'GET':

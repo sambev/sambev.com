@@ -1,9 +1,11 @@
 contextApp.controller('ContextSearchController', [
     '$scope',
+    '$window',
     'contextService',
     'geoLocationService',
-    function ($scope, contextService, geoLocationService) {
+    function ($scope, $window, contextService, geoLocationService) {
         'use strict';
+        var url_context = decodeURIComponent($window.location.pathname.split('/')[4]);
 
         $scope.reset = function () {
             $scope.context = {};
@@ -19,9 +21,9 @@ contextApp.controller('ContextSearchController', [
             });
         }
 
-        contextService.get_context('tokens', 'Who are you with?', 'Marcos').then(function (resp) {
+        contextService.get_context('tokens', 'Who are you with?', url_context).then(function (resp) {
             $scope.reset();
-            $scope.context = contextService.build_context(resp.data, 'Marcos');
+            $scope.context = contextService.build_context(resp.data, url_context);
         });
     }
 ]);
