@@ -113,7 +113,7 @@
                                 <div class="col-lg-12">
                                     <ol>
                                         <li ng-repeat="person in people | filter:peopleFilter">
-                                            <a href="/reports/tokens/context/{{ person[0] }}">
+                                            <a href="/reports/people/context/{{ person[0] }}">
                                                 {{ person[0] }} - {{ person[1] }}
                                             </a>
                                         </li>
@@ -144,7 +144,7 @@
                                 <div class="col-lg-12">
                                     <ol>
                                         <li ng-repeat="place in places | filter:placesFilter">
-                                            <a href="#">
+                                            <a href="/reports/places/context/{{ place[0] }}">
                                                 {{ place[0] }} - {{ place[1] }}
                                             </a>
                                         </li>
@@ -175,7 +175,7 @@
                                 <div class="col-lg-12">
                                     <ol>
                                         <li ng-repeat="activity in activities | filter:activityFilter">
-                                            <a href="#">
+                                            <a href="/reports/activities/context/{{ activity[0] }}">
                                                 {{ activity[0] }} - {{ activity[1] }}
                                             </a>
                                         </li>
@@ -191,6 +191,7 @@
 
     <script type="text/javascript" src="/static/vendor/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="/static/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/static/js/reports/modules/reports.js"></script>
     <script type="text/javascript" src="/static/js/summary/summary.js"></script>
 [[ endblock ]]
 

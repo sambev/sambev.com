@@ -5,7 +5,18 @@ contextApp.controller('ContextSearchController', [
     'geoLocationService',
     function ($scope, $window, contextService, geoLocationService) {
         'use strict';
-        var url_context = decodeURIComponent($window.location.pathname.split('/')[4]);
+        var question_type = 'tokens';
+        var token_name = decodeURIComponent($window.location.pathname.split('/')[4]),
+            token_type = decodeURIComponent($window.location.pathname.split('/')[2]),
+            type_map = {
+                'people': 'Who are you with?',
+                'places': 'Where are you?',
+                'activities': 'What are you doing?'
+            };
+
+        if (token_type == 'places') {
+            question_type = 'locations';
+        }
 
         $scope.reset = function () {
             $scope.context = {};
@@ -14,16 +25,9 @@ contextApp.controller('ContextSearchController', [
             $scope.activityFilter = '';
         }
 
-        $scope.search = function (type, question, token) {
-            contextService.get_context(type, question, token).then(function (resp) {
-                $scope.reset();
-                $scope.context = contextService.build_context(resp.data, token);
-            });
-        }
-
-        contextService.get_context('tokens', 'Who are you with?', url_context).then(function (resp) {
+        contextService.get_context(question_type, type_map[token_type], token_name).then(function (resp) {
             $scope.reset();
-            $scope.context = contextService.build_context(resp.data, url_context);
+            $scope.context = contextService.build_context(resp.data, token_name);
         });
     }
 ]);

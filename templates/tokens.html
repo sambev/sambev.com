@@ -57,8 +57,7 @@
                             <div class="col-lg-12">
                                 <ol>
                                     <li ng-repeat="person in context.people | filter:peopleFilter">
-                                        <a href="#"
-                                            ng-click="search('tokens', 'Who are you with?', person.name)">
+                                        <a href="/reports/people/context/{{ person.name }}">
                                             {{ person.name | titlecase }} - {{ person.amount }}
                                         </a>
                                     </li>
@@ -89,8 +88,7 @@
                             <div class="col-lg-12">
                                 <ol>
                                     <li ng-repeat="place in context.places | filter:placesFilter">
-                                        <a href="#"
-                                            ng-click="search('locations', 'Where are you?', place.name)">
+                                        <a href="/reports/places/context/{{ place.name }}">
                                             {{ place.name }} - {{ place.amount }}
                                         </a>
                                     </li>
@@ -121,8 +119,7 @@
                             <div class="col-lg-12">
                                 <ol>
                                     <li ng-repeat="activity in context.activities | filter:activityFilter">
-                                        <a href="#"
-                                            ng-click="search('tokens', 'What are you doing?', activity.name)">
+                                        <a href="/reports/activities/context/{{ activity.name }}">
                                             {{ activity.name }} - {{ activity.amount }}
                                         </a>
                                     </li>
