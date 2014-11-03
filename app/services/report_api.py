@@ -94,7 +94,6 @@ class ReportService(object):
                     else:
                         summary[location] += 1
 
-        print summary
         return sorted(summary.items(), key=itemgetter(1), reverse=True)
 
     def get_numeric_summary(self, question):
@@ -223,35 +222,38 @@ class ReportService(object):
         @param String answer
         @return dict data
         """
-        location_filter = {
-            'location.latitude': 1,
-            'location.longitude': 1,
-            'responses.locationResponse.text': 1
-        }
+        location_filter = [
+            'location.latitude',
+            'location.longitude',
+            'responses.locationResponse.text'
+        ]
+
         if question and answer:
             reports = self.getReportsByToken(question, answer, location_filter)
         else:
             reports = self._query({}, location_filter)
+
         geo_data = []
 
         for rep in reports:
-            new_geo = {
-                'type': 'Feature',
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': [
-                        rep['location']['longitude'],
-                        rep['location']['latitude']
-                    ]
-                },
-                'properties': {}
-            }
+            if 'location' in rep:
+                new_geo = {
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [
+                            rep['location']['longitude'],
+                            rep['location']['latitude']
+                        ]
+                    },
+                    'properties': {}
+                }
 
-            if 'responses' in rep:
-                for resp in rep['responses']:
-                    if 'locationResponse' in resp:
-                        new_geo['properties']['name'] = resp['locationResponse']['text']
+                if 'responses' in rep:
+                    for resp in rep['responses']:
+                        if 'locationResponse' in resp:
+                            new_geo['properties']['name'] = resp['locationResponse']['text']
 
-            geo_data.append(new_geo)
+                geo_data.append(new_geo)
 
         return geo_data

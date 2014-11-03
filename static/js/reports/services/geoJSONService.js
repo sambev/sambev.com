@@ -9,9 +9,9 @@ reportApp.factory('geoLocationService', [
             var url;
 
             if (question && answer) {
-                url = encodeURIComponent('/geojson/' + question + '/' + answer);
+                url = '/reports/geojson/' + encodeURIComponent(question + '/' + answer);
             } else {
-                url = encodeURIComponent('/geojson/');
+                url = '/reports/geojson/'
             }
 
             var req = $http({

@@ -1,6 +1,8 @@
 [[ extends 'base.html' ]]
 
 [[ block header ]]
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
 [[ endblock ]]
 
 [[ block body ]]
@@ -187,12 +189,21 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div ng-controller="MainMapController">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="/static/vendor/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="/static/vendor/angular/angular.min.js"></script>
     <script type="text/javascript" src="/static/js/reports/modules/reports.js"></script>
     <script type="text/javascript" src="/static/js/summary/summary.js"></script>
+    <script type="text/javascript" src="/static/js/reports/controllers/MainMapController.js"></script>
+    <script type="text/javascript" src="/static/js/reports/services/geoJSONService.js"></script>
 [[ endblock ]]
 
 [[ block footer ]]
