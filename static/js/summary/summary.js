@@ -152,12 +152,12 @@ summary.directive('rdNumberTile', function () {
                         '</div>' +
                         '<div class="panel-body">' +
                             '<div class="row">' +
-                                '<div class="col-lg-5">' +
+                                '<div class="col-lg-5 col-xs-4">' +
                                     '<p>Low: {{ low | number: 0 }}</p>' +
                                     '<p>Avg: {{ avg | number: 0 }}</p>' +
                                     '<p>High: {{ high | number: 0 }}</p>' +
                                 '</div>' +
-                                '<div class="col-lg-7">' +
+                                '<div class="col-lg-7 col-xs-8">' +
                                     '<p class="current center">{{ current | number: 0 }}</p>' +
                                     '<p class="center">Current</p>' +
                                 '</div>' +

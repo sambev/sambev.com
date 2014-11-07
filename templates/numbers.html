@@ -9,37 +9,37 @@
     <div ng-app="summary" ng-cloak>
         <div class="row">
             <div ng-controller="SummaryTotalController">
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-4">
                     <div class="well center">
                         <p class="report-title">{{ totals.reports }}</p>
                         <small>Reports</small>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-4">
                     <div class="well center">
                         <p class="report-title">{{ totals.days }}</p>
                         <small>Days</small>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-4">
                     <div class="well center">
                         <p class="report-title">{{ totals.avg_per_day }}</p>
                         <small>Avg/Day</small>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-4">
                     <div class="well center">
                         <p class="report-title">{{ totals.tokens }}</p>
                         <small>Tokens</small>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-4">
                     <div class="well center">
                         <p class="report-title">{{ totals.locations }}</p>
                         <small>Locations</small>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-xs-4">
                     <div class="well center">
                         <p class="report-title">{{ totals.people }}</p>
                         <small>People</small>
@@ -51,7 +51,7 @@
 
         <div ng-controller="SummaryAppController">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-xs-6">
                     <rd-number-tile
                         title="'Weight (lbs)'"
                         low="weight.min"
@@ -61,7 +61,7 @@
                         type="'primary'">
                     </rd-number-tile>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-xs-6">
                     <rd-number-tile
                         title="'Steps'"
                         low=""
@@ -71,7 +71,7 @@
                         type="'warning'">
                     </rd-number-tile>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-xs-6">
                     <rd-number-tile
                         title="'Sleep Quality (%)'"
                         low="sleep.low"
@@ -81,7 +81,7 @@
                         type="'success'">
                     </rd-number-tile>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-xs-6">
                     <rd-number-tile
                         title="'Happiness'"
                         low="happy.min"
@@ -94,7 +94,7 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-xs-6">
                     <div class="panel panel-success">
                         <div class="panel-heading center">
                             <div class="row">
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-xs-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading center">
                             <div class="row">
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-xs-6">
                     <div class="panel panel-danger">
                         <div class="panel-heading center">
                             <div class="row">
@@ -190,7 +190,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8 hidden-xs">
                 <div ng-controller="MainMapController">
                     <div id="map"></div>
                 </div>
