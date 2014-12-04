@@ -23,7 +23,7 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_totals: function () {
-                return $http.get('/reports/totals')
+                return $http.get('/api/reports/totals')
             },
 
             /**
@@ -32,7 +32,7 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_summary_for_numeric_question: function (question) {
-                var url = '/reports/summary/numeric/' + encodeURIComponent(question),
+                var url = '/api/reports/summary/numeric/' + encodeURIComponent(question),
                     req = $http.get(url);
 
                 return req;
@@ -44,7 +44,7 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_summary_for_token_question: function (question) {
-                var url = '/reports/summary/token/' + encodeURIComponent(question),
+                var url = '/api/reports/summary/token/' + encodeURIComponent(question),
                     req = $http.get(url);
 
                 return req;
@@ -56,7 +56,7 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_summary_for_location_question: function (question) {
-                var url = '/reports/summary/location/' + encodeURIComponent(question),
+                var url = '/api/reports/summary/location/' + encodeURIComponent(question),
                     req = $http.get(url);
 
                 return req;
@@ -67,7 +67,11 @@ summary.factory('summaryService', [
              * @return {$http promise}
              */
             get_sleep_summary: function () {
-                return $http.get('/sleep/summary/')
+                return $http.get('/sleep/summary/');
+            },
+
+            get_unique_dates: function () {
+                return $http.get('/api/reports/dates');
             }
         }
     }
@@ -112,6 +116,11 @@ summary.controller('SummaryAppController', [
                 $scope.places = resp.data;
             }
         );
+
+        summaryService.get_unique_dates().then(function (resp) {
+            $scope.dates = resp.data;
+        });
+
         // summaryService.get_sleep_summary().then(
         //     function (resp) {
         //         $scope.sleep = resp.data;

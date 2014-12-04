@@ -11,7 +11,6 @@ reportApp.controller('MainMapController', [
         var geo_layer;
 
         geoLocationService.get().then(function (resp) {
-            console.log(resp);
             var geojson = {
                 "type": "FeatureCollection",
                 "features": resp.data

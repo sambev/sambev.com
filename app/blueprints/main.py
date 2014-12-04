@@ -10,10 +10,14 @@ main = Blueprint('main', __name__,
 @main.route('/', methods=['GET'])
 @main.route('/numbers', methods=['GET'])
 def numbers():
-    if request.method == 'GET':
-        return render_template('numbers.html', active='numbers')
+    return render_template('numbers.html', active='numbers')
+
 
 @main.route('/about', methods=['GET'])
 def about():
-    if request.method == 'GET':
-        return render_template('about.html', active='about')
+    return render_template('about.html', active='about')
+
+
+@main.route('/reports/dates/<string:date>', methods=['GET'])
+def view_date(date):
+    return render_template('dates.html')

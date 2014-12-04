@@ -1,0 +1,55 @@
+[[ extends 'base.html' ]]
+
+[[ block header ]]
+[[ endblock ]]
+
+[[ block body ]]
+    <div class="container" ng-app="reportApp">
+        <div ng-controller="ReportsController">
+            <div class="row">
+                <h1>{{ reports[0].date | date: 'fullDate' }}</h1>
+            </div>
+            <div ng-repeat="report in reports">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <h4>{{ report.date | date : 'shortTime' }}</h4>
+                    </div>
+                    <div class="col-lg-2">
+                        <h4>{{ report.location.placemark.locality }}, {{ report.location.placemark.administrativeArea }}</h4>
+                    </div>
+                    <div class="col-lg-1">
+                        <h4>{{ report.weather.tempF }}&#176;</h4>
+                    </div>
+                    <div class="col-lg-2">
+                        <h4>{{ report.weather.weather }}</h4>
+                    </div>
+                    <div class="col-lg-5">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div ng-repeat="response in report.responses">
+                        <div ng-if="response.questionPrompt" class="col-lg-3">
+                            <h4>{{ response.questionPrompt }}</h4>
+                            <ul ng-if="response.tokens" ng-repeat="token in response.tokens">
+                                <li>{{ token }}</li>
+                            </ul>
+                            <ul ng-if="response.locationResponse">
+                                <li>{{ response.locationResponse.text }}</li>
+                            </ul>
+                            <ul ng-if="response.numericResponse">
+                                <li>{{ response.numericResponse }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+[[ endblock ]]
+
+[[ block footer ]]
+    <script src="/static/vendor/angular/angular.min.js"></script>
+    <script src="/static/js/reports/modules/reports.js"></script>
+    <script src="/static/js/reports/controllers/ReportsController.js"></script>
+    <script src="/static/js/reports/services/reportsService.js"></script>
+[[ endblock ]]

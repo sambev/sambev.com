@@ -6,6 +6,7 @@ import dateutil.parser
 
 from config.settings import SETTINGS
 
+
 def parse_reporter_date(value):
     """Parse the date from a reporterApp report.  It can be one of two formats
     1. Stupid Apple date that is seconds from 01.01.2001
@@ -19,6 +20,7 @@ def parse_reporter_date(value):
         return datetime.fromtimestamp(iphone_date + value).replace(tzinfo=None)
     else:
         return dateutil.parser.parse(value).replace(tzinfo=None)
+
 
 class ReportService(object):
 
@@ -43,7 +45,8 @@ class ReportService(object):
         for filt in filters:
             query_filter[filt] = 1
 
-        data = [d for d in self.collection.find(query, query_filter).sort('date', sort)]
+        data = [d for d in self.collection.find(
+            query, query_filter).sort('date', sort)]
 
         return data
 
@@ -118,7 +121,8 @@ class ReportService(object):
             for response in report.get('responses', []):
                 if response.get('questionPrompt') == question:
                     if response.get('numericResponse'):
-                        summary['total'] += float(response.get('numericResponse'))
+                        summary[
+                            'total'] += float(response.get('numericResponse'))
                         data.append(float(response.get('numericResponse')))
 
         summary['average'] = summary['total'] / len(data)
@@ -143,16 +147,16 @@ class ReportService(object):
         last_date = parse_reporter_date(reports[-1].get('date'))
 
         tokens = self.collection.find({
-            'responses.tokens': { '$exists': True }
+            'responses.tokens': {'$exists': True}
         }).distinct('responses.tokens')
 
         locations = self.collection.find({
-            'responses.locationResponse.text': { '$exists': True }
+            'responses.locationResponse.text': {'$exists': True}
         }).distinct('responses.locationResponse.text')
 
         people = self.collection.find({
             'responses.questionPrompt': 'Who are you with?',
-            'responses.tokens': { '$exists': True }
+            'responses.tokens': {'$exists': True}
         }).distinct('responses.tokens')
 
         totals['reports'] = len(reports)
@@ -252,8 +256,29 @@ class ReportService(object):
                 if 'responses' in rep:
                     for resp in rep['responses']:
                         if 'locationResponse' in resp:
-                            new_geo['properties']['name'] = resp['locationResponse']['text']
+                            new_geo['properties']['name'] = resp[
+                                'locationResponse']['text']
 
                 geo_data.append(new_geo)
 
         return geo_data
+
+    def get_report_dates(self):
+        """Get all the dates that reports were filled out.
+        @return List
+        """
+        dates = self.collection.distinct('sectionIdentifier')
+        # the [2:] is to get rid of the leading '1-'
+        return [d[2:] for d in dates]
+
+    def get_reports_for_date(self, date):
+        """Get all the reports for the given date. Date format is '2014-01-10'
+        @param String date
+        @return List
+        """
+        query = {
+            'sectionIdentifier': '1-' + date
+        }
+        reports = self._query(query)
+
+        return [r for r in reports]
