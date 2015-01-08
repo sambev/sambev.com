@@ -68,11 +68,11 @@ class ReportService(object):
                     tokens = response.get('tokens')
                     if tokens:
                         for token in tokens:
-                            if token != 'Nate Mcbride':
-                                if token not in summary:
-                                    summary[token] = 1
+                            if token['text'] != 'Nate Mcbride':
+                                if token['text'] not in summary:
+                                    summary[token['text']] = 1
                                 else:
-                                    summary[token] += 1
+                                    summary[token['text']] += 1
 
         return sorted(summary.items(), key=itemgetter(1), reverse=True)
 
@@ -147,8 +147,8 @@ class ReportService(object):
         last_date = parse_reporter_date(reports[-1].get('date'))
 
         tokens = self.collection.find({
-            'responses.tokens': {'$exists': True}
-        }).distinct('responses.tokens')
+            'responses.tokens.text': {'$exists': True}
+        }).distinct('responses.tokens.text')
 
         locations = self.collection.find({
             'responses.locationResponse.text': {'$exists': True}
@@ -156,8 +156,8 @@ class ReportService(object):
 
         people = self.collection.find({
             'responses.questionPrompt': 'Who are you with?',
-            'responses.tokens': {'$exists': True}
-        }).distinct('responses.tokens')
+            'responses.tokens.text': {'$exists': True}
+        }).distinct('responses.tokens.text')
 
         totals['reports'] = len(reports)
         totals['tokens'] = len(tokens)
@@ -175,7 +175,7 @@ class ReportService(object):
         """
         query = {
             'responses.questionPrompt': question,
-            'responses.tokens': token
+            'responses.tokens.text': token
         }
 
         return self._query(query, filters)
@@ -235,7 +235,7 @@ class ReportService(object):
         if question and answer:
             reports = self.getReportsByToken(question, answer, location_filter)
         else:
-            reports = self._query({}, location_filter)
+            reports = self.collection.distinct('responses.locationResponse')
 
         geo_data = []
 

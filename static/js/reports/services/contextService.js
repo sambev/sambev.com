@@ -17,7 +17,7 @@ contextApp.factory('contextService', [
         contextService.get_context = function (type, question, answer) {
             var req = $http({
                 method: 'GET',
-                url: '/api/reports/' + encodeURIComponent(type + '/' + question + '/' + answer)
+                url: '/api/reports/' + encodeURIComponent(type) + '/' + encodeURIComponent(question) + '/' + encodeURIComponent(answer)
             });
             req.success(function (data) {
                 return data;
@@ -52,10 +52,10 @@ contextApp.factory('contextService', [
                 weather: {
                     raw: [],
                     highF: function () {
-                        return _.max(this.raw)
+                        return _.max(this.raw);
                     },
                     lowF: function () {
-                        return _.min(this.raw)
+                        return _.min(this.raw);
                     },
                     avgF: function () {
                         var sum = 0;
@@ -89,11 +89,11 @@ contextApp.factory('contextService', [
                     switch (question) {
                         case 'Who are you with?':
                             _.each(response.tokens, function (token) {
-                                if (query != token) {
+                                if (query != token.text) {
                                     var has_token = false;
 
                                     _.each(context.people, function (person) {
-                                        if (person.name == token) {
+                                        if (person.name == token.text) {
                                             person.amount++;
                                             has_token = true;
                                         }
@@ -101,7 +101,7 @@ contextApp.factory('contextService', [
 
                                     if (!has_token) {
                                         var new_person = {
-                                            name: token,
+                                            name: token.text,
                                             amount: 1
                                         };
                                         context.people.push(new_person);
@@ -135,11 +135,11 @@ contextApp.factory('contextService', [
                             break;
                         case 'What are you doing?':
                             _.each(response.tokens, function (token) {
-                                if (query != token) {
+                                if (query != token.text) {
                                     var has_token = false;
 
                                     _.each(context.activities, function (activity) {
-                                        if (activity.name == token) {
+                                        if (activity.name == token.text) {
                                             activity.amount++;
                                             has_token = true;
                                         }
@@ -147,7 +147,7 @@ contextApp.factory('contextService', [
 
                                     if (!has_token) {
                                         var new_activity = {
-                                            name: token,
+                                            name: token.text,
                                             amount: 1
                                         };
                                         context.activities.push(new_activity);

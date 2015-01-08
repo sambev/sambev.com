@@ -23,7 +23,7 @@ contextApp.controller('ContextSearchController', [
             $scope.peopleFilter = '';
             $scope.placesFilter = '';
             $scope.activityFilter = '';
-        }
+        };
 
         contextService.get_context(question_type, type_map[token_type], token_name).then(function (resp) {
             $scope.reset();

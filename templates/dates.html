@@ -17,27 +17,44 @@
                     <div class="col-lg-2">
                         <h4>{{ report.location.placemark.locality }}, {{ report.location.placemark.administrativeArea }}</h4>
                     </div>
-                    <div class="col-lg-1">
+                    <div ng-repeat="response in report.responses">
+                        <div ng-if="response.locationResponse">
+                            <div class="col-lg-3">
+                                <h4>{{ response.locationResponse.text }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-lg-offset-2">
                         <h4>{{ report.weather.tempF }}&#176;</h4>
                     </div>
                     <div class="col-lg-2">
                         <h4>{{ report.weather.weather }}</h4>
                     </div>
-                    <div class="col-lg-5">&nbsp;</div>
                 </div>
                 <div class="row">
-                    <div ng-repeat="response in report.responses">
-                        <div ng-if="response.questionPrompt" class="col-lg-3">
-                            <h4>{{ response.questionPrompt }}</h4>
-                            <ul ng-if="response.tokens" ng-repeat="token in response.tokens">
-                                <li>{{ token }}</li>
-                            </ul>
-                            <ul ng-if="response.locationResponse">
-                                <li>{{ response.locationResponse.text }}</li>
-                            </ul>
-                            <ul ng-if="response.numericResponse">
-                                <li>{{ response.numericResponse }}</li>
-                            </ul>
+                    <div class="col-lg-4">
+                        <div ng-repeat="response in report.responses">
+                            <div ng-if="response.numericResponse && response.questionPrompt">
+                                <h4>{{ response.questionPrompt }}: <span class="label label-default">{{ response.numericResponse }}</span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div ng-repeat="response in report.responses">
+                            <div ng-if="response.tokens && response.questionPrompt">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        {{ response.questionPrompt }}
+                                    </div>
+                                    <div class="panel-body">
+                                        <span ng-repeat="token in response.tokens">
+                                            <span class="label label-default">{{ token }}</span>,
+                                        </span>
+                                    </div>
+                                </div>
+                                <h4>
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
